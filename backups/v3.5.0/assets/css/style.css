@@ -1,0 +1,139 @@
+/* WashGuard Institutional Design System - Scheme 2 Grounded Contrast (Purple Theme) */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --bg-primary: #f1edf7;
+  --bg-card: #ffffff;
+  --border-card: #e4dcf1;
+  --text-primary: #0f172a;
+  --text-secondary: #475569;
+  --accent-purple: #7c3aed;
+  --accent-purple-dark: #6d28d9;
+  --accent-purple-light: #f5f2fb;
+  --header-bg: #160c28;
+  --summary-card-bg: #1a0f2e;
+  --summary-tile-bg: #281846;
+  --summary-border: #3b2262;
+}
+
+/* Global Font: Plus Jakarta Sans for all texts and numbers */
+* {
+  font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+}
+
+body {
+  background-color: #f1edf7;
+  color: #0f172a;
+  font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Ensure all monospace/number elements use Plus Jakarta Sans with tabular alignment */
+.font-mono, .font-mono-num, code, pre, button, input, select, textarea {
+  font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif !important;
+}
+
+.font-mono-num {
+  font-feature-settings: "tnum" 1, "zero" 1;
+  font-variant-numeric: tabular-nums;
+}
+
+/* Custom Scrollbar in subtle purple tint */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #ede8f5;
+}
+::-webkit-scrollbar-thumb {
+  background: #cbbce4;
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #a894cc;
+}
+
+/* Input Fields */
+.input-field {
+  background-color: #ffffff;
+  border: 1px solid #d6c9e8;
+  color: #0f172a;
+  padding: 0.5rem 0.75rem;
+  border-radius: 0.5rem;
+  font-size: 0.8125rem;
+  transition: all 0.15s ease;
+  width: 100%;
+}
+.input-field:focus {
+  outline: none;
+  border-color: #7c3aed;
+  box-shadow: 0 0 0 2px rgba(124, 58, 237, 0.15);
+}
+
+/* Primary Action Buttons */
+.calc-btn {
+  background-color: #7c3aed;
+  color: #ffffff;
+  transition: background-color 0.15s ease, box-shadow 0.15s ease;
+}
+.calc-btn:hover {
+  background-color: #6d28d9;
+  box-shadow: 0 2px 4px rgba(109, 40, 217, 0.25);
+}
+
+.btn-add-buy {
+  background-color: #ecfdf5;
+  color: #065f46;
+  border-color: #a7f3d0;
+}
+.btn-add-buy:hover {
+  background-color: #d1fae5;
+}
+
+.btn-add-sell {
+  background-color: #fff1f2;
+  color: #9f1239;
+  border-color: #fecdd3;
+}
+.btn-add-sell:hover {
+  background-color: #ffe4e6;
+}
+
+/* Leg Row Borders */
+.repurchase-leg-row.leg-row-buy {
+  border-left: 4px solid #059669;
+  background-color: #ffffff;
+}
+.repurchase-leg-row.leg-row-sell {
+  border-left: 4px solid #dc2626;
+  background-color: #ffffff;
+}
+
+/* Header & Card Transitions */
+.theme-transition {
+  transition: background-color 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease, color 0.25s ease;
+}
+
+/* Print Styles */
+@media print {
+  body {
+    background-color: white !important;
+    color: black !important;
+  }
+  .no-print, nav, .ad-unit, button {
+    display: none !important;
+  }
+  table {
+    width: 100% !important;
+    color: black !important;
+  }
+  th, td {
+    border: 1px solid #ddd !important;
+    color: black !important;
+    padding: 6px !important;
+  }
+}

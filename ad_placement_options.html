@@ -1,0 +1,568 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>WashGuard - Ad Placement Strategies & Interactive Mocks</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+      font-feature-settings: "tnum" 1, "zero" 1;
+    }
+    .font-mono-num {
+      font-family: 'Plus Jakarta Sans', monospace;
+      font-feature-settings: "tnum" 1, "zero" 1;
+    }
+    .active-tab {
+      background-color: #0C1B15 !important;
+      color: #F6F4EF !important;
+      border-color: #1D393C !important;
+    }
+    .ad-shimmer {
+      background: linear-gradient(90deg, rgba(255,255,255,0.03) 0%, rgba(255,255,255,0.08) 50%, rgba(255,255,255,0.03) 100%);
+      background-size: 200% 100%;
+      animation: shimmer 3s infinite;
+    }
+    @keyframes shimmer {
+      0% { background-position: -200% 0; }
+      100% { background-position: 200% 0; }
+    }
+  </style>
+</head>
+<body class="bg-[#ECE9E1] text-[#0C1B15] min-h-screen p-3 sm:p-6 antialiased">
+
+  <!-- HEADER SHOWCASE CONTROLLER -->
+  <header class="max-w-7xl mx-auto mb-6 bg-white border border-[#C5D9E3] rounded-2xl p-5 shadow-xs">
+    <div class="flex flex-col lg:flex-row lg:items-center justify-between gap-4 pb-4 border-b border-[#C5D9E3]">
+      <div>
+        <div class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-[#1D393C] text-[#C5D9E3] text-[11px] font-mono font-semibold tracking-wide mb-1.5 uppercase">
+          Monetization Architecture • Ad Placement Suite
+        </div>
+        <h1 class="text-xl sm:text-2xl font-extrabold text-[#0C1B15] tracking-tight">
+          WashGuard Ad Placement Options & Financial RPM Mocks
+        </h1>
+        <p class="text-xs sm:text-sm text-slate-600 mt-1">
+          Explore 4 high-yield, brand-safe ad placement architectures designed specifically for active traders, high net-worth investors, and financial tax simulation.
+        </p>
+      </div>
+
+      <!-- Quick Strategy Selector -->
+      <div class="flex flex-wrap items-center gap-2 font-mono text-xs">
+        <button onclick="setPlacementMode('option-a')" id="tab-option-a" class="tab-btn active-tab px-3 py-2 rounded-xl font-bold border border-[#C5D9E3] transition-all flex items-center gap-1.5 shadow-2xs">
+          <span>Option A:</span> Multi-Zone Top & Bottom
+        </button>
+        <button onclick="setPlacementMode('option-b')" id="tab-option-b" class="tab-btn px-3 py-2 rounded-xl font-medium text-slate-700 bg-[#F6F4EF] hover:bg-white border border-[#C5D9E3] transition-all flex items-center gap-1.5 shadow-2xs">
+          <span>Option B:</span> Mid-Stream Native Broker
+        </button>
+        <button onclick="setPlacementMode('option-c')" id="tab-option-c" class="tab-btn px-3 py-2 rounded-xl font-medium text-slate-700 bg-[#F6F4EF] hover:bg-white border border-[#C5D9E3] transition-all flex items-center gap-1.5 shadow-2xs">
+          <span>Option C:</span> Sticky Floating Sponsor Dock
+        </button>
+        <button onclick="setPlacementMode('option-d')" id="tab-option-d" class="tab-btn px-3 py-2 rounded-xl font-medium text-slate-700 bg-[#F6F4EF] hover:bg-white border border-[#C5D9E3] transition-all flex items-center gap-1.5 shadow-2xs">
+          <span>Option D:</span> Desktop Side Tower Rail
+        </button>
+      </div>
+    </div>
+
+    <!-- Strategy Telemetry & Projections -->
+    <div class="pt-4 grid grid-cols-2 sm:grid-cols-4 gap-3 text-xs font-mono" id="telemetryGrid">
+      <div class="p-3 rounded-xl bg-[#F6F4EF] border border-[#C5D9E3]">
+        <div class="text-[10px] uppercase text-slate-500 font-bold">Estimated Financial RPM</div>
+        <div id="statRpm" class="text-lg font-bold text-[#0C1B15] mt-0.5">$18.00 - $28.00</div>
+        <div class="text-[10px] text-emerald-700 font-medium">Tier-1 US Financial Inventory</div>
+      </div>
+      <div class="p-3 rounded-xl bg-[#F6F4EF] border border-[#C5D9E3]">
+        <div class="text-[10px] uppercase text-slate-500 font-bold">Viewability Score</div>
+        <div id="statViewability" class="text-lg font-bold text-emerald-800 mt-0.5">88% - 94%</div>
+        <div class="text-[10px] text-slate-500">Above IAB industry benchmark (70%)</div>
+      </div>
+      <div class="p-3 rounded-xl bg-[#F6F4EF] border border-[#C5D9E3]">
+        <div class="text-[10px] uppercase text-slate-500 font-bold">User Experience (UX) Impact</div>
+        <div id="statUx" class="text-lg font-bold text-blue-900 mt-0.5">Minimal / Non-Intrusive</div>
+        <div class="text-[10px] text-slate-500">Zero layout shifts, CLS: 0.00</div>
+      </div>
+      <div class="p-3 rounded-xl bg-[#F6F4EF] border border-[#C5D9E3]">
+        <div class="text-[10px] uppercase text-slate-500 font-bold">Recommended Networks</div>
+        <div id="statNetworks" class="text-xs font-bold text-[#1D393C] mt-1">AdSense + TradingView + IBKR</div>
+        <div class="text-[10px] text-slate-500">Hybrid direct affiliate + programmatic</div>
+      </div>
+    </div>
+
+    <!-- Live Interactive Toggle Controls -->
+    <div class="mt-4 pt-4 border-t border-[#C5D9E3] flex flex-wrap items-center justify-between gap-3 text-xs">
+      <div class="flex items-center gap-2">
+        <span class="font-bold text-xs font-mono uppercase text-[#0C1B15]">Interactive Slot Toggles:</span>
+        <span class="text-slate-500 text-xs hidden sm:inline">(Turn slots ON/OFF to test combinations)</span>
+      </div>
+      <div class="flex flex-wrap items-center gap-3 font-mono text-xs">
+        <label class="flex items-center gap-1.5 cursor-pointer select-none">
+          <input type="checkbox" id="toggleTop" checked onchange="updateCustomToggles()" class="rounded text-[#1D393C] focus:ring-[#1D393C]">
+          <span>Top Leaderboard</span>
+        </label>
+        <label class="flex items-center gap-1.5 cursor-pointer select-none">
+          <input type="checkbox" id="toggleMid" onchange="updateCustomToggles()" class="rounded text-[#1D393C] focus:ring-[#1D393C]">
+          <span>Mid-Stream Native</span>
+        </label>
+        <label class="flex items-center gap-1.5 cursor-pointer select-none">
+          <input type="checkbox" id="toggleSticky" checked onchange="updateCustomToggles()" class="rounded text-[#1D393C] focus:ring-[#1D393C]">
+          <span>Sticky Bottom Bar</span>
+        </label>
+        <label class="flex items-center gap-1.5 cursor-pointer select-none">
+          <input type="checkbox" id="toggleRail" onchange="updateCustomToggles()" class="rounded text-[#1D393C] focus:ring-[#1D393C]">
+          <span>Right Side Tower (>=1280px)</span>
+        </label>
+      </div>
+    </div>
+  </header>
+
+  <!-- MOCKUP CANVAS (Live WashGuard App Simulation with Configured Ad Slots) -->
+  <div class="max-w-7xl mx-auto">
+    
+    <div class="flex flex-col lg:flex-row gap-5 items-start">
+
+      <!-- MAIN APP INTERFACE CONTAINER -->
+      <div class="flex-1 w-full bg-[#F6F4EF] border-2 border-[#C5D9E3] rounded-2xl shadow-md overflow-hidden relative">
+        
+        <!-- TOP APP HEADER -->
+        <header class="bg-[#0C1B15] text-[#F6F4EF] border-b border-[#1D393C] px-5 sm:px-8 h-12 flex items-center justify-between">
+          <div class="flex items-center gap-2.5 font-mono text-xs font-bold tracking-wider">
+            <span class="w-5 h-5 bg-[#A19ABD] text-[#0C1B15] rounded flex items-center justify-center font-black text-xs">W</span>
+            <span class="tracking-widest font-bold text-[#F6F4EF]">WASHGUARD</span>
+            <span class="text-[#C5D9E3] font-normal hidden sm:inline">| WASH SALE CALCULATOR</span>
+          </div>
+          <div class="flex items-center gap-3">
+            <div class="hidden sm:flex items-center gap-1.5 text-[11px] font-mono text-[#B4C4C3]">
+              <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span>
+              <span>STATUTORY ENGINE</span>
+            </div>
+            <div class="flex items-center gap-1.5 px-2.5 py-1 rounded-md bg-[#1D393C] border border-[#284f53] text-[10px] font-mono font-bold text-[#C5D9E3]">
+              <span class="w-1.5 h-1.5 rounded-full bg-[#A19ABD]"></span>
+              <span>1A: TERMINAL</span>
+            </div>
+          </div>
+        </header>
+
+        <!-- APP BODY -->
+        <div class="p-4 sm:p-6 space-y-5">
+          
+          <!-- ========================================================================= -->
+          <!-- AD SLOT 1: TOP LEADERBOARD BANNER (Restored v3.3.0 Dark Gradient Partner) -->
+          <!-- ========================================================================= -->
+          <div id="slotTopBanner" class="w-full transition-all duration-300">
+            <div class="relative overflow-hidden rounded-2xl bg-gradient-to-r from-slate-900 via-indigo-950/40 to-slate-900 border border-indigo-500/20 p-4 shadow-lg text-white">
+              <div class="flex flex-wrap items-center justify-between gap-4">
+                <div class="flex items-center gap-3">
+                  <div class="w-10 h-10 rounded-xl bg-indigo-500/10 border border-indigo-500/30 flex items-center justify-center text-indigo-400 text-lg font-bold font-mono">
+                    TV
+                  </div>
+                  <div>
+                    <div class="flex items-center gap-2">
+                      <span class="text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded bg-indigo-500/20 text-indigo-300 font-mono">
+                        FINANCIAL PARTNER
+                      </span>
+                      <span class="text-xs text-slate-400 font-mono">TradingView Partner Offer</span>
+                    </div>
+                    <h5 class="text-sm font-semibold text-white mt-0.5">Next-Level Charting & Real-Time Market Screener</h5>
+                    <p class="text-xs text-slate-300">Track 61-day wash sale windows across all your brokerage watchlists.</p>
+                  </div>
+                </div>
+                <div class="flex items-center gap-3">
+                  <a href="#" onclick="alert('Demo: Redirects to partner affiliate link')" class="px-4 py-2 rounded-xl bg-indigo-600 hover:bg-indigo-500 text-white text-xs font-semibold font-mono shadow-md transition-all flex items-center gap-1.5 whitespace-nowrap">
+                    <span>Explore Charts & Screener →</span>
+                  </a>
+                </div>
+              </div>
+              <div class="absolute top-1 right-2 text-[9px] font-mono text-slate-500">Sponsored Ad</div>
+            </div>
+          </div>
+
+          <!-- CALCULATION SUMMARY CARD (Option 1: Institutional Terminal) -->
+          <div class="bg-[#0C1B15] border-2 border-[#1D393C] rounded-xl p-4 sm:p-5 shadow-md space-y-4 text-[#F6F4EF]">
+            <div class="flex items-center justify-between border-b border-[#1D393C] pb-3">
+              <div class="flex items-center gap-2.5">
+                <span class="w-2.5 h-2.5 rounded-full bg-[#A19ABD]"></span>
+                <h3 class="text-xs font-mono font-bold uppercase tracking-wider text-[#F6F4EF]">
+                  Calculation Summary
+                </h3>
+                <span class="text-[10px] font-mono text-[#B4C4C3]/70 hidden sm:inline">| INSTITUTIONAL TERMINAL</span>
+              </div>
+              <span class="px-2.5 py-0.5 rounded text-[10px] font-mono font-bold uppercase tracking-wider bg-rose-950/80 text-rose-300 border border-rose-800">
+                WASH SALE TRIGGERED
+              </span>
+            </div>
+
+            <!-- 4-Column Metric Ribbon -->
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-3 font-mono">
+              <div class="p-3.5 rounded-lg bg-[#1D393C] border border-[#284f53]">
+                <div class="text-[10px] uppercase text-[#C5D9E3] font-bold tracking-wider">Disallowed Loss</div>
+                <div class="text-xl font-bold font-mono-num text-amber-400 mt-0.5">$2,000.00</div>
+                <div class="text-[10px] text-amber-300 mt-0.5">Deferred to basis</div>
+              </div>
+              <div class="p-3.5 rounded-lg bg-[#1D393C] border border-[#284f53]">
+                <div class="text-[10px] uppercase text-[#C5D9E3] font-bold tracking-wider">Recognized Tax P/L</div>
+                <div class="text-xl font-bold font-mono-num text-rose-400 mt-0.5">-$4,000.00</div>
+                <div class="text-[10px] text-rose-400/80 mt-0.5">Reportable Loss</div>
+              </div>
+              <div class="p-3.5 rounded-lg bg-[#1D393C] border border-[#284f53]">
+                <div class="text-[10px] uppercase text-[#C5D9E3] font-bold tracking-wider">Adjusted Cost Basis</div>
+                <div class="text-xl font-bold font-mono-num text-[#C5D9E3] mt-0.5">$110.00<span class="text-xs text-[#B4C4C3] font-normal">/sh</span></div>
+                <div class="text-[10px] text-amber-400/90 mt-0.5">+$20.00/sh tacked wash</div>
+              </div>
+              <div class="p-3.5 rounded-lg bg-[#1D393C] border border-[#284f53]">
+                <div class="text-[10px] uppercase text-[#C5D9E3] font-bold tracking-wider">Window Clearance (Day +31)</div>
+                <div class="text-xl font-bold font-mono-num text-emerald-400 mt-0.5">Apr 26, 2026</div>
+                <div class="text-[10px] text-emerald-400/80 mt-0.5">Clean Repurchase Safe</div>
+              </div>
+            </div>
+
+            <!-- Option D Compliance Note -->
+            <div class="pt-2 border-t border-[#1D393C] flex flex-wrap items-center justify-between gap-2 text-[10px] font-mono text-[#B4C4C3]/80">
+              <div class="flex items-center gap-1.5">
+                <span>ℹ</span>
+                <span>For educational scenario simulation only. Not tax advice. See footer disclosures below.</span>
+              </div>
+              <div class="text-[10px] text-[#C5D9E3]/70 font-mono">
+                Zero Server Retention • Client-Side Computation
+              </div>
+            </div>
+          </div>
+
+          <!-- TRANSACTION LEGS FORM (Security Symbol in Header Row) -->
+          <div class="bg-white border border-[#C5D9E3] rounded-xl p-5 shadow-xs space-y-4">
+            <div class="border-b border-[#C5D9E3] pb-3 flex flex-wrap items-center justify-between gap-3">
+              <div class="flex flex-wrap items-center gap-3 sm:gap-4">
+                <h2 class="text-xs font-mono font-bold uppercase tracking-wider text-[#0C1B15]">
+                  Transaction Legs (Buys & Sells)
+                </h2>
+                <div class="h-4 w-px bg-[#C5D9E3] hidden sm:block"></div>
+                <!-- Security Identifier on Same Row -->
+                <div class="flex items-center gap-2 font-mono">
+                  <label class="text-xs font-semibold uppercase text-slate-700">Security Symbol:</label>
+                  <input type="text" class="input-field uppercase font-mono-num font-bold w-24 text-center px-2 py-1 text-xs border border-[#C5D9E3] rounded bg-[#F6F4EF]" value="DEF" readonly>
+                </div>
+              </div>
+              <div class="flex items-center gap-2">
+                <button type="button" class="px-2.5 py-1 rounded bg-emerald-50 text-emerald-800 text-xs font-mono font-semibold border border-emerald-300 flex items-center gap-1 shadow-2xs">
+                  <span>+</span> ADD BUY LOT
+                </button>
+                <button type="button" class="px-2.5 py-1 rounded bg-rose-50 text-rose-800 text-xs font-mono font-semibold border border-rose-300 flex items-center gap-1 shadow-2xs">
+                  <span>+</span> ADD SELL LOT
+                </button>
+              </div>
+            </div>
+
+            <!-- Sample Leg Rows Preview -->
+            <div class="border border-[#C5D9E3] rounded-lg p-3 bg-[#F6F4EF] space-y-2">
+              <div class="p-2.5 bg-white border border-[#C5D9E3] rounded-lg flex flex-wrap items-center justify-between gap-3 text-xs font-mono">
+                <div class="flex items-center gap-3">
+                  <span class="px-1.5 py-0.5 bg-emerald-50 text-emerald-800 border border-emerald-300 rounded font-bold text-[10px]">LEG 1 : BUY</span>
+                  <span class="text-slate-600">2026-03-01</span>
+                  <span class="font-bold text-[#0C1B15]">100 sh @ $100.00</span>
+                </div>
+                <div class="text-[11px] text-slate-500">Basis: <strong class="text-[#0C1B15]">$100.00/sh</strong> (Initial Acquisition)</div>
+              </div>
+              <div class="p-2.5 bg-white border border-[#C5D9E3] rounded-lg flex flex-wrap items-center justify-between gap-3 text-xs font-mono">
+                <div class="flex items-center gap-3">
+                  <span class="px-1.5 py-0.5 bg-rose-50 text-rose-800 border border-rose-300 rounded font-bold text-[10px]">LEG 2 : SELL</span>
+                  <span class="text-slate-600">2026-03-15</span>
+                  <span class="font-bold text-[#0C1B15]">100 sh @ $80.00</span>
+                </div>
+                <div class="text-[11px] text-amber-700 font-medium">Disallowed Loss: <strong class="text-amber-800">$2,000.00</strong> (Tacked to Leg 3)</div>
+              </div>
+            </div>
+
+            <div class="flex justify-end pt-1">
+              <button type="button" class="px-5 py-2.5 rounded-lg bg-[#1D393C] text-[#F6F4EF] font-mono font-bold text-xs shadow-sm flex items-center gap-2 border border-[#1D393C]">
+                RECALCULATE WASH SALES
+              </button>
+            </div>
+          </div>
+
+          <!-- ========================================================================= -->
+          <!-- AD SLOT 2: MID-STREAM NATIVE CONTEXTUAL SPONSOR (Between Form & Timeline) -->
+          <!-- ========================================================================= -->
+          <div id="slotMidBanner" class="w-full transition-all duration-300 hidden">
+            <div class="p-4 rounded-xl bg-gradient-to-r from-emerald-950 via-[#0C1B15] to-[#1D393C] border border-emerald-500/30 shadow-md text-white">
+              <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+                <div class="flex items-center gap-3">
+                  <div class="w-9 h-9 rounded-lg bg-emerald-500/20 border border-emerald-500/40 flex items-center justify-center text-emerald-400 font-bold text-sm font-mono">
+                    IBKR
+                  </div>
+                  <div>
+                    <div class="flex items-center gap-2">
+                      <span class="text-[9px] font-bold uppercase tracking-wider px-2 py-0.5 rounded bg-emerald-500/20 text-emerald-300 font-mono">
+                        BROKER INTEGRATION SPONSOR
+                      </span>
+                      <span class="text-[11px] text-slate-400 font-mono">Interactive Brokers Group</span>
+                    </div>
+                    <div class="text-xs font-semibold text-white mt-0.5">Automated Tax-Loss Harvesting & Global Stock Execution</div>
+                    <p class="text-[11px] text-[#C5D9E3]">Sync positions directly with real-time wash sale prevention rules.</p>
+                  </div>
+                </div>
+                <div class="flex items-center gap-2">
+                  <button onclick="alert('Demo: Redirects to broker partner page')" class="px-3.5 py-2 rounded-lg bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-bold text-xs font-mono shadow-xs transition-all whitespace-nowrap">
+                    Open Pro Account →
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- TIMELINE CONTAINER PREVIEW -->
+          <div class="bg-white border border-[#C5D9E3] rounded-xl p-5 shadow-xs space-y-3">
+            <div class="flex items-center justify-between border-b border-[#C5D9E3] pb-2 font-mono text-xs">
+              <span class="font-bold text-[#0C1B15] uppercase tracking-wider">61-Day Statutory Timeline Horizon</span>
+              <span class="text-slate-500 text-[11px]">Window: T-30 to T+30</span>
+            </div>
+            <div class="h-10 bg-[#F6F4EF] rounded-lg border border-[#C5D9E3] flex items-center justify-center text-xs font-mono text-slate-500">
+              [ Interactive 61-Day Timeline Zone Canvas: March 1, 2026 to April 26, 2026 ]
+            </div>
+          </div>
+
+        </div>
+
+        <!-- ========================================================================= -->
+        <!-- AD SLOT 3: STICKY FLOATING BOTTOM SPONSOR DOCK (Fixed Footbar)            -->
+        <!-- ========================================================================= -->
+        <div id="slotStickyDock" class="sticky bottom-0 z-30 w-full bg-[#0C1B15]/95 backdrop-blur-md border-t border-[#1D393C] p-2.5 px-4 sm:px-6 shadow-2xl transition-all duration-300">
+          <div class="max-w-7xl mx-auto flex items-center justify-between gap-3 text-xs font-mono text-white">
+            <div class="flex items-center gap-3">
+              <span class="px-1.5 py-0.5 rounded bg-[#A19ABD] text-[#0C1B15] font-black text-[10px]">AD</span>
+              <div class="truncate">
+                <span class="font-bold text-[#C5D9E3]">Automate Wash Sale & Form 8949 Accounting:</span>
+                <span class="text-slate-300 hidden md:inline ml-1">Connect your trading accounts for 1-click tax reconciliation.</span>
+              </div>
+            </div>
+            <div class="flex items-center gap-2 flex-shrink-0">
+              <button onclick="alert('Demo: Redirects to tax software affiliate')" class="px-3 py-1 rounded bg-[#1D393C] hover:bg-[#284f53] text-[#F6F4EF] border border-[#C5D9E3]/30 text-xs font-bold transition-all">
+                Learn More
+              </button>
+              <button onclick="document.getElementById('slotStickyDock').classList.add('hidden')" class="w-6 h-6 rounded bg-slate-800 hover:bg-slate-700 text-slate-400 hover:text-white flex items-center justify-center text-xs transition-colors" title="Dismiss banner">
+                ✕
+              </button>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- ========================================================================= -->
+      <!-- AD SLOT 4: DESKTOP RIGHT-RAIL SKYSCRAPER / SIDE TOWER (300x600 IAB Unit)   -->
+      <!-- ========================================================================= -->
+      <div id="slotRailTower" class="hidden w-80 flex-shrink-0 transition-all duration-300">
+        <div class="bg-white border-2 border-[#C5D9E3] rounded-2xl p-4 shadow-md space-y-4 sticky top-6">
+          <div class="flex items-center justify-between border-b border-[#C5D9E3] pb-2 font-mono text-[11px]">
+            <span class="font-bold text-[#0C1B15] uppercase tracking-wider">Sponsored Partner</span>
+            <span class="text-slate-500 text-[10px]">300 × 600 Tower</span>
+          </div>
+
+          <!-- 300x600 Visual Ad Mock -->
+          <div class="h-[520px] rounded-xl bg-gradient-to-b from-[#0C1B15] via-[#1D393C] to-[#0C1B15] border border-[#284f53] p-5 flex flex-col justify-between text-white font-mono relative overflow-hidden">
+            <div class="space-y-4">
+              <div class="w-10 h-10 rounded-lg bg-[#A19ABD] text-[#0C1B15] flex items-center justify-center font-black text-sm">
+                TAX
+              </div>
+              <div>
+                <span class="text-[9px] font-bold uppercase tracking-wider px-2 py-0.5 rounded bg-emerald-500/20 text-emerald-300">
+                  INSTITUTIONAL CPA TOOL
+                </span>
+                <h4 class="text-base font-bold text-white mt-2 leading-snug">Never Overpay On Wash Sales</h4>
+                <p class="text-xs text-[#C5D9E3] mt-2 leading-relaxed">
+                  Export IRS-compliant Form 8949 schedules with automated loss-tacking across 50+ brokers and crypto exchanges.
+                </p>
+              </div>
+
+              <div class="p-3 rounded-lg bg-[#0C1B15]/60 border border-[#284f53] text-[11px] space-y-1">
+                <div class="flex items-center justify-between text-[#B4C4C3]">
+                  <span>Average Tax Saved:</span>
+                  <span class="text-emerald-400 font-bold">$3,420</span>
+                </div>
+                <div class="flex items-center justify-between text-[#B4C4C3]">
+                  <span>Audit Defense:</span>
+                  <span class="text-white">Included</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="space-y-2 pt-4 border-t border-[#284f53]">
+              <button onclick="alert('Demo: Redirects to partner signup')" class="w-full py-2.5 rounded-lg bg-[#A19ABD] hover:bg-[#b5afcf] text-[#0C1B15] font-bold text-xs shadow-md transition-all">
+                Claim 20% Partner Discount →
+              </button>
+              <div class="text-[9px] text-center text-slate-400">Sponsored Financial Service</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- COMPARISON MATRIX & IMPLEMENTATION RECOMMENDATIONS -->
+    <div class="mt-8 bg-white border border-[#C5D9E3] rounded-2xl p-6 shadow-xs space-y-4 font-mono">
+      <div class="flex items-center justify-between border-b border-[#C5D9E3] pb-3">
+        <h3 class="text-sm font-bold uppercase tracking-wider text-[#0C1B15] flex items-center gap-2">
+          <span>📊</span> Financial Ad Placement Strategy Comparison
+        </h3>
+        <span class="text-xs text-slate-500">Tier-1 US Financial Inventory Evaluation</span>
+      </div>
+
+      <div class="overflow-x-auto">
+        <table class="w-full text-left text-xs border-collapse">
+          <thead>
+            <tr class="border-b border-[#C5D9E3] text-[11px] uppercase tracking-wider text-slate-600 font-semibold bg-[#F6F4EF]">
+              <th class="p-3">Placement Strategy</th>
+              <th class="p-3">Position & Standard Size</th>
+              <th class="p-3">Est. Financial RPM</th>
+              <th class="p-3">Click-Through Rate (CTR)</th>
+              <th class="p-3">UX / Layout Impact</th>
+              <th class="p-3">Best Advertiser Fit</th>
+            </tr>
+          </thead>
+          <tbody class="divide-y divide-slate-100 text-xs">
+            <tr class="hover:bg-slate-50">
+              <td class="p-3 font-bold text-[#0C1B15]">Option A: Top Leaderboard + Sticky Dock</td>
+              <td class="p-3">Top 970x90 + Sticky 320x50/728x90</td>
+              <td class="p-3 font-bold text-emerald-800">$18.00 - $28.00</td>
+              <td class="p-3 text-slate-700">1.8% - 3.2%</td>
+              <td class="p-3 text-emerald-700">High Trust, Dismissible</td>
+              <td class="p-3 text-slate-600">TradingView, IBKR, AdSense Auto</td>
+            </tr>
+            <tr class="hover:bg-slate-50">
+              <td class="p-3 font-bold text-[#0C1B15]">Option B: Mid-Stream Native Broker</td>
+              <td class="p-3">Between Legs & Timeline (Fluid Native)</td>
+              <td class="p-3 font-bold text-emerald-800">$12.00 - $20.00</td>
+              <td class="p-3 text-emerald-800 font-bold">3.5% - 5.1% (Highest)</td>
+              <td class="p-3 text-blue-900">Zero Top Clutter, High Intent</td>
+              <td class="p-3 text-slate-600">Brokers (Schwab, Robinhood, IBKR)</td>
+            </tr>
+            <tr class="hover:bg-slate-50">
+              <td class="p-3 font-bold text-[#0C1B15]">Option C: Sticky Floating Sponsor Dock Only</td>
+              <td class="p-3">Fixed Viewport Bottom (320x50 / 728x90)</td>
+              <td class="p-3 font-bold text-emerald-800">$10.00 - $16.00</td>
+              <td class="p-3 text-slate-700">2.1% - 3.6%</td>
+              <td class="p-3 text-emerald-700">Minimalist, Cleanest Canvas</td>
+              <td class="p-3 text-slate-600">SaaS CPA Partners, TaxBit, CoinTracker</td>
+            </tr>
+            <tr class="hover:bg-slate-50">
+              <td class="p-3 font-bold text-[#0C1B15]">Option D: Desktop Right-Rail Tower</td>
+              <td class="p-3">300x600 Half-Page Tower (>=1280px)</td>
+              <td class="p-3 font-bold text-emerald-800">$20.00 - $32.00 (Top CPM)</td>
+              <td class="p-3 text-slate-700">1.4% - 2.8%</td>
+              <td class="p-3 text-slate-700">Desktop Only, High Space Use</td>
+              <td class="p-3 text-slate-600">Programmatic Header Bidding, Direct Funds</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+  </div>
+
+  <script>
+    function setPlacementMode(mode) {
+      document.querySelectorAll('.tab-btn').forEach(b => {
+        b.classList.remove('active-tab');
+        b.classList.add('text-slate-700', 'bg-[#F6F4EF]');
+      });
+      const activeBtn = document.getElementById('tab-' + mode);
+      if (activeBtn) {
+        activeBtn.classList.add('active-tab');
+        activeBtn.classList.remove('text-slate-700', 'bg-[#F6F4EF]');
+      }
+
+      const topSlot = document.getElementById('slotTopBanner');
+      const midSlot = document.getElementById('slotMidBanner');
+      const stickySlot = document.getElementById('slotStickyDock');
+      const railSlot = document.getElementById('slotRailTower');
+
+      const toggleTop = document.getElementById('toggleTop');
+      const toggleMid = document.getElementById('toggleMid');
+      const toggleSticky = document.getElementById('toggleSticky');
+      const toggleRail = document.getElementById('toggleRail');
+
+      if (mode === 'option-a') {
+        // Multi-Zone: Top + Sticky
+        topSlot.classList.remove('hidden');
+        midSlot.classList.add('hidden');
+        stickySlot.classList.remove('hidden');
+        railSlot.classList.add('hidden');
+
+        toggleTop.checked = true;
+        toggleMid.checked = false;
+        toggleSticky.checked = true;
+        toggleRail.checked = false;
+
+        document.getElementById('statRpm').textContent = '$18.00 - $28.00';
+        document.getElementById('statViewability').textContent = '92% - 96%';
+        document.getElementById('statUx').textContent = 'Balanced & High Visibility';
+      } else if (mode === 'option-b') {
+        // Mid-Stream Native
+        topSlot.classList.add('hidden');
+        midSlot.classList.remove('hidden');
+        stickySlot.classList.add('hidden');
+        railSlot.classList.add('hidden');
+
+        toggleTop.checked = false;
+        toggleMid.checked = true;
+        toggleSticky.checked = false;
+        toggleRail.checked = false;
+
+        document.getElementById('statRpm').textContent = '$12.00 - $20.00';
+        document.getElementById('statViewability').textContent = '84% - 89%';
+        document.getElementById('statUx').textContent = 'Zero Top Clutter / Natural Flow';
+      } else if (mode === 'option-c') {
+        // Sticky Bottom Dock Only
+        topSlot.classList.add('hidden');
+        midSlot.classList.add('hidden');
+        stickySlot.classList.remove('hidden');
+        railSlot.classList.add('hidden');
+
+        toggleTop.checked = false;
+        toggleMid.checked = false;
+        toggleSticky.checked = true;
+        toggleRail.checked = false;
+
+        document.getElementById('statRpm').textContent = '$10.00 - $16.00';
+        document.getElementById('statViewability').textContent = '95% (Persistent)';
+        document.getElementById('statUx').textContent = 'Unobtrusive / Dismissible';
+      } else if (mode === 'option-d') {
+        // Right Side Tower
+        topSlot.classList.remove('hidden');
+        midSlot.classList.add('hidden');
+        stickySlot.classList.add('hidden');
+        railSlot.classList.remove('hidden');
+
+        toggleTop.checked = true;
+        toggleMid.checked = false;
+        toggleSticky.checked = false;
+        toggleRail.checked = true;
+
+        document.getElementById('statRpm').textContent = '$22.00 - $35.00';
+        document.getElementById('statViewability').textContent = '90% - 94%';
+        document.getElementById('statUx').textContent = 'Classic Wall St Terminal Portal';
+      }
+    }
+
+    function updateCustomToggles() {
+      const topSlot = document.getElementById('slotTopBanner');
+      const midSlot = document.getElementById('slotMidBanner');
+      const stickySlot = document.getElementById('slotStickyDock');
+      const railSlot = document.getElementById('slotRailTower');
+
+      if (document.getElementById('toggleTop').checked) topSlot.classList.remove('hidden');
+      else topSlot.classList.add('hidden');
+
+      if (document.getElementById('toggleMid').checked) midSlot.classList.remove('hidden');
+      else midSlot.classList.add('hidden');
+
+      if (document.getElementById('toggleSticky').checked) stickySlot.classList.remove('hidden');
+      else stickySlot.classList.add('hidden');
+
+      if (document.getElementById('toggleRail').checked) railSlot.classList.remove('hidden');
+      else railSlot.classList.add('hidden');
+    }
+  </script>
+</body>
+</html>

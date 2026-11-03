@@ -1,0 +1,561 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>WashGuard - Educational Disclaimer UI Options Mockup</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    .font-mono-num { font-family: 'JetBrains Mono', monospace; font-feature-settings: "tnum" 1, "zero" 1; }
+  </style>
+</head>
+<body class="bg-slate-100 text-slate-900 font-sans antialiased p-4 sm:p-6 lg:p-8">
+
+  <!-- TOP SHOWCASE CONTROL PANEL -->
+  <div class="max-w-7xl mx-auto mb-8">
+    <div class="flex flex-col md:flex-row md:items-center justify-between gap-4 pb-5 border-b border-slate-300">
+      <div>
+        <div class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-slate-200 border border-slate-300 text-slate-700 text-[11px] font-mono font-semibold tracking-wide mb-1 uppercase">
+          UI Design Comparison • Educational Disclaimer
+        </div>
+        <h1 class="text-xl sm:text-2xl font-bold text-slate-950 tracking-tight">
+          Educational Disclaimer: 4 Less-Obtrusive UI Options
+        </h1>
+        <p class="text-xs sm:text-sm text-slate-600 mt-0.5">
+          Click between options below to preview each presentation live within the WashGuard layout.
+        </p>
+      </div>
+
+      <!-- Live Mock Selector Tabs -->
+      <div class="flex flex-wrap items-center gap-1.5 p-1 bg-white border border-slate-300 rounded-xl shadow-xs font-mono text-xs">
+        <button onclick="showOption('current')" id="tab-current" class="opt-tab px-3 py-1.5 rounded-lg font-bold transition-all text-slate-600 hover:text-slate-950">
+          Current (Yellow Alert)
+        </button>
+        <button onclick="showOption('opt-a')" id="tab-opt-a" class="opt-tab px-3 py-1.5 rounded-lg font-bold transition-all bg-blue-600 text-white shadow-xs">
+          Option A (Slate Strip)
+        </button>
+        <button onclick="showOption('opt-b')" id="tab-opt-b" class="opt-tab px-3 py-1.5 rounded-lg font-bold transition-all text-slate-600 hover:text-slate-950">
+          Option B (Button Caption)
+        </button>
+        <button onclick="showOption('opt-c')" id="tab-opt-c" class="opt-tab px-3 py-1.5 rounded-lg font-bold transition-all text-slate-600 hover:text-slate-950">
+          Option C (Header Pill)
+        </button>
+        <button onclick="showOption('opt-d')" id="tab-opt-d" class="opt-tab px-3 py-1.5 rounded-lg font-bold transition-all text-slate-600 hover:text-slate-950">
+          Option D (Summary Card Note)
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <main class="max-w-7xl mx-auto space-y-8">
+
+    <!-- ========================================================================= -->
+    <!-- VIEW CONTAINER (Switched dynamically via JS)                              -->
+    <!-- ========================================================================= -->
+
+    <!-- OPTION A: MUTED SLATE UTILITY STRIP [DEFAULT RECOMMENDED] -->
+    <div id="view-opt-a" class="option-view space-y-4">
+      <!-- Rationale Card -->
+      <div class="p-4 rounded-xl bg-blue-50/80 border border-blue-200 text-xs shadow-2xs flex flex-col md:flex-row md:items-center justify-between gap-3">
+        <div class="space-y-1">
+          <div class="flex items-center gap-2">
+            <span class="w-2.5 h-2.5 rounded-full bg-blue-600"></span>
+            <strong class="text-blue-950 font-mono text-[11px] uppercase tracking-wider">Option A: Muted Slate Utility Strip (Under-Header Minimalist)</strong>
+            <span class="px-2 py-0.5 rounded bg-emerald-100 text-emerald-800 text-[10px] font-mono font-bold">Recommended</span>
+          </div>
+          <p class="text-slate-700">
+            Retains top placement so users immediately see statutory compliance, but replaces the bright yellow/amber "alert" color and caution emoji with a quiet, cool-slate utility strip (<code class="text-blue-900 bg-white px-1 py-0.5 rounded">bg-slate-100/80</code>) with subtle neutral slate-500 typography (<code class="text-blue-900 bg-white px-1 py-0.5 rounded">text-[11px]</code>).
+          </p>
+        </div>
+        <div class="flex items-center gap-2 text-[11px] font-mono text-slate-600 shrink-0">
+          <span class="px-2.5 py-1 rounded bg-white border border-slate-200 shadow-2xs">Eye-Catchiness: <strong>Low (3/10)</strong></span>
+          <span class="px-2.5 py-1 rounded bg-white border border-slate-200 shadow-2xs">Dismissible: <strong>Yes (✕)</strong></span>
+        </div>
+      </div>
+
+      <!-- App Frame -->
+      <div class="bg-slate-50 border border-slate-200 rounded-2xl shadow-sm overflow-hidden">
+        <!-- Top App Bar -->
+        <header class="bg-white border-b border-slate-200 px-5 sm:px-8 h-12 flex items-center justify-between">
+          <div class="flex items-center gap-2.5 font-mono text-xs font-bold tracking-wider">
+            <span class="w-5 h-5 bg-blue-600 text-white rounded flex items-center justify-center font-black text-xs">W</span>
+            <span class="tracking-widest text-slate-950">WASHGUARD</span>
+            <span class="text-slate-400 font-normal">| WASH SALE CALCULATOR</span>
+          </div>
+          <div class="flex items-center gap-3">
+            <div class="flex items-center gap-1.5 text-[11px] font-mono text-slate-400">
+              <span class="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse"></span>
+              <span>PRIME DESK MODE</span>
+            </div>
+          </div>
+        </header>
+
+        <!-- [MOCK ELEMENT]: OPTION A STRIP -->
+        <div class="bg-slate-100/80 border-b border-slate-200 px-4 py-1.5 text-[11px] text-slate-500 font-mono transition-all">
+          <div class="max-w-7xl mx-auto flex items-center justify-between gap-3">
+            <div class="flex items-center gap-2">
+              <span class="w-1.5 h-1.5 rounded-full bg-slate-400 shrink-0"></span>
+              <p class="truncate sm:whitespace-normal">
+                <strong class="text-slate-700 font-semibold">Educational Simulation:</strong> 
+                WashGuard is an analytical tool for scenario simulation, not tax advice or a filing service. Consult a licensed CPA.
+              </p>
+            </div>
+            <button class="text-slate-400 hover:text-slate-700 text-xs px-1.5 py-0.5 rounded transition-colors" title="Dismiss">
+              ✕
+            </button>
+          </div>
+        </div>
+
+        <!-- Body Content Sample -->
+        <div class="p-5 sm:p-6 space-y-5">
+          <!-- TradingView Banner -->
+          <div class="ad-unit relative overflow-hidden rounded-xl bg-white border border-slate-200 p-4 shadow-xs">
+            <div class="flex flex-wrap items-center justify-between gap-4">
+              <div class="flex items-center gap-3">
+                <div class="w-10 h-10 rounded-lg bg-blue-50 border border-blue-200 flex items-center justify-center text-blue-600 font-bold text-sm font-mono tracking-tighter shrink-0">TV</div>
+                <div>
+                  <div class="flex items-center gap-2 font-mono">
+                    <span class="text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded bg-blue-100 text-blue-800">FINANCIAL PARTNER</span>
+                    <span class="text-xs text-slate-500">TradingView</span>
+                  </div>
+                  <h5 class="text-sm font-bold text-slate-900 mt-0.5">Next-Level Charting & Real-Time Market Screener</h5>
+                  <p class="text-xs text-slate-600">Get up to $30 off your trading subscription today.</p>
+                </div>
+              </div>
+              <a href="#" class="px-4 py-2 rounded-lg bg-blue-600 text-white text-xs font-bold font-mono shadow-xs">Explore Charts & Screener →</a>
+            </div>
+          </div>
+
+          <!-- 2-Column Grid -->
+          <div class="grid grid-cols-1 lg:grid-cols-12 gap-5">
+            <div class="lg:col-span-7 bg-white border border-slate-200 rounded-xl p-5 shadow-xs space-y-4">
+              <h2 class="text-xs font-mono font-bold uppercase tracking-wider text-slate-900 border-b border-slate-200 pb-2">Transaction Legs (Buys & Sells)</h2>
+              <div class="p-3 rounded-lg bg-slate-50 border border-slate-200 text-xs font-mono text-slate-600 space-y-2">
+                <div>Leg #1: BUY 100 sh @ $200.00 (2026-03-01)</div>
+                <div>Leg #2: SELL 100 sh @ $170.00 (2026-03-15) from Leg #1</div>
+                <div>Leg #3: BUY 100 sh @ $175.00 (2026-03-25)</div>
+              </div>
+              <div class="flex justify-end pt-1">
+                <button class="px-5 py-2.5 rounded-lg bg-blue-600 text-white font-mono font-bold text-xs shadow-xs">RECALCULATE WASH SALES</button>
+              </div>
+            </div>
+            <div class="lg:col-span-5 bg-white border border-slate-200 rounded-xl p-5 shadow-xs space-y-3 font-mono">
+              <h3 class="text-xs font-bold uppercase tracking-wider text-slate-900 border-b border-slate-200 pb-2">Calculation Summary</h3>
+              <div class="grid grid-cols-2 gap-3 text-xs">
+                <div class="p-2.5 bg-slate-50 rounded border border-slate-200">
+                  <span class="text-[10px] text-slate-500 font-bold block">Disallowed Loss</span>
+                  <span class="text-lg font-bold text-slate-900 font-mono-num">$0.00</span>
+                </div>
+                <div class="p-2.5 bg-slate-50 rounded border border-slate-200">
+                  <span class="text-[10px] text-slate-500 font-bold block">Realized Tax Gain/Loss</span>
+                  <span class="text-lg font-bold text-rose-700 font-mono-num">-$4,000.00</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- OPTION B: BUTTON MICRO-CAPTION (INTEGRATED) -->
+    <div id="view-opt-b" class="option-view space-y-4 hidden">
+      <!-- Rationale Card -->
+      <div class="p-4 rounded-xl bg-purple-50/80 border border-purple-200 text-xs shadow-2xs flex flex-col md:flex-row md:items-center justify-between gap-3">
+        <div class="space-y-1">
+          <div class="flex items-center gap-2">
+            <span class="w-2.5 h-2.5 rounded-full bg-purple-600"></span>
+            <strong class="text-purple-950 font-mono text-[11px] uppercase tracking-wider">Option B: Form Micro-Caption Below the Calculate CTA</strong>
+            <span class="px-2 py-0.5 rounded bg-purple-100 text-purple-800 text-[10px] font-mono font-bold">100% Clean Header</span>
+          </div>
+          <p class="text-slate-700">
+            Completely removes any disclaimer banner from the top of the viewport. Instead, embeds a subtle italicized micro-caption directly under the <strong>RECALCULATE WASH SALES</strong> button inside the input card, right where users trigger calculations.
+          </p>
+        </div>
+        <div class="flex items-center gap-2 text-[11px] font-mono text-slate-600 shrink-0">
+          <span class="px-2.5 py-1 rounded bg-white border border-slate-200 shadow-2xs">Eye-Catchiness: <strong>Minimal (2/10)</strong></span>
+          <span class="px-2.5 py-1 rounded bg-white border border-slate-200 shadow-2xs">Top Disruption: <strong>Zero</strong></span>
+        </div>
+      </div>
+
+      <!-- App Frame -->
+      <div class="bg-slate-50 border border-slate-200 rounded-2xl shadow-sm overflow-hidden">
+        <!-- Top App Bar (Zero Banner below) -->
+        <header class="bg-white border-b border-slate-200 px-5 sm:px-8 h-12 flex items-center justify-between">
+          <div class="flex items-center gap-2.5 font-mono text-xs font-bold tracking-wider">
+            <span class="w-5 h-5 bg-blue-600 text-white rounded flex items-center justify-center font-black text-xs">W</span>
+            <span class="tracking-widest text-slate-950">WASHGUARD</span>
+            <span class="text-slate-400 font-normal">| WASH SALE CALCULATOR</span>
+          </div>
+          <div class="flex items-center gap-3 font-mono text-[11px] text-slate-400">
+            <span class="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse"></span>
+            <span>PRIME DESK MODE</span>
+          </div>
+        </header>
+
+        <!-- Body Content Sample -->
+        <div class="p-5 sm:p-6 space-y-5">
+          <!-- TradingView Banner sits right at top cleanly -->
+          <div class="ad-unit relative overflow-hidden rounded-xl bg-white border border-slate-200 p-4 shadow-xs">
+            <div class="flex flex-wrap items-center justify-between gap-4">
+              <div class="flex items-center gap-3">
+                <div class="w-10 h-10 rounded-lg bg-blue-50 border border-blue-200 flex items-center justify-center text-blue-600 font-bold text-sm font-mono tracking-tighter shrink-0">TV</div>
+                <div>
+                  <div class="flex items-center gap-2 font-mono">
+                    <span class="text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded bg-blue-100 text-blue-800">FINANCIAL PARTNER</span>
+                    <span class="text-xs text-slate-500">TradingView</span>
+                  </div>
+                  <h5 class="text-sm font-bold text-slate-900 mt-0.5">Next-Level Charting & Real-Time Market Screener</h5>
+                  <p class="text-xs text-slate-600">Get up to $30 off your trading subscription today.</p>
+                </div>
+              </div>
+              <a href="#" class="px-4 py-2 rounded-lg bg-blue-600 text-white text-xs font-bold font-mono shadow-xs">Explore Charts & Screener →</a>
+            </div>
+          </div>
+
+          <!-- 2-Column Grid -->
+          <div class="grid grid-cols-1 lg:grid-cols-12 gap-5">
+            <div class="lg:col-span-7 bg-white border border-slate-200 rounded-xl p-5 shadow-xs space-y-4">
+              <h2 class="text-xs font-mono font-bold uppercase tracking-wider text-slate-900 border-b border-slate-200 pb-2">Transaction Legs (Buys & Sells)</h2>
+              <div class="p-3 rounded-lg bg-slate-50 border border-slate-200 text-xs font-mono text-slate-600 space-y-2">
+                <div>Leg #1: BUY 100 sh @ $200.00 (2026-03-01)</div>
+                <div>Leg #2: SELL 100 sh @ $170.00 (2026-03-15) from Leg #1</div>
+                <div>Leg #3: BUY 100 sh @ $175.00 (2026-03-25)</div>
+              </div>
+              
+              <!-- [MOCK ELEMENT]: OPTION B MICRO-CAPTION -->
+              <div class="flex flex-col items-end gap-1.5 pt-1">
+                <button class="px-5 py-2.5 rounded-lg bg-blue-600 text-white font-mono font-bold text-xs shadow-xs">RECALCULATE WASH SALES</button>
+                <p class="text-[10px] font-mono text-slate-500 italic text-right">
+                  * Analytical simulation tool only. Not formal tax preparation, filing, or CPA advisory services.
+                </p>
+              </div>
+            </div>
+            <div class="lg:col-span-5 bg-white border border-slate-200 rounded-xl p-5 shadow-xs space-y-3 font-mono">
+              <h3 class="text-xs font-bold uppercase tracking-wider text-slate-900 border-b border-slate-200 pb-2">Calculation Summary</h3>
+              <div class="grid grid-cols-2 gap-3 text-xs">
+                <div class="p-2.5 bg-slate-50 rounded border border-slate-200">
+                  <span class="text-[10px] text-slate-500 font-bold block">Disallowed Loss</span>
+                  <span class="text-lg font-bold text-slate-900 font-mono-num">$0.00</span>
+                </div>
+                <div class="p-2.5 bg-slate-50 rounded border border-slate-200">
+                  <span class="text-[10px] text-slate-500 font-bold block">Realized Tax Gain/Loss</span>
+                  <span class="text-lg font-bold text-rose-700 font-mono-num">-$4,000.00</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- OPTION C: HEADER MICRO-PILL (ZERO VERTICAL SPACE) -->
+    <div id="view-opt-c" class="option-view space-y-4 hidden">
+      <!-- Rationale Card -->
+      <div class="p-4 rounded-xl bg-teal-50/80 border border-teal-200 text-xs shadow-2xs flex flex-col md:flex-row md:items-center justify-between gap-3">
+        <div class="space-y-1">
+          <div class="flex items-center gap-2">
+            <span class="w-2.5 h-2.5 rounded-full bg-teal-600"></span>
+            <strong class="text-teal-950 font-mono text-[11px] uppercase tracking-wider">Option C: Header Micro-Pill / Tooltip (Ultra-Compact)</strong>
+            <span class="px-2 py-0.5 rounded bg-teal-100 text-teal-800 text-[10px] font-mono font-bold">Zero Vertical Height</span>
+          </div>
+          <p class="text-slate-700">
+            Integrates the notice as an elegant badge inside the top navigation bar right next to the theme switcher. Users can hover or click the pill to see the full disclaimer in a native tooltip, taking up exactly zero vertical space.
+          </p>
+        </div>
+        <div class="flex items-center gap-2 text-[11px] font-mono text-slate-600 shrink-0">
+          <span class="px-2.5 py-1 rounded bg-white border border-slate-200 shadow-2xs">Eye-Catchiness: <strong>Very Low (1/10)</strong></span>
+          <span class="px-2.5 py-1 rounded bg-white border border-slate-200 shadow-2xs">Space Consumed: <strong>0px</strong></span>
+        </div>
+      </div>
+
+      <!-- App Frame -->
+      <div class="bg-slate-50 border border-slate-200 rounded-2xl shadow-sm overflow-hidden">
+        <!-- Top App Bar with Embedded Pill -->
+        <header class="bg-white border-b border-slate-200 px-5 sm:px-8 h-12 flex items-center justify-between">
+          <div class="flex items-center gap-2.5 font-mono text-xs font-bold tracking-wider">
+            <span class="w-5 h-5 bg-blue-600 text-white rounded flex items-center justify-center font-black text-xs">W</span>
+            <span class="tracking-widest text-slate-950">WASHGUARD</span>
+            <span class="text-slate-400 font-normal">| WASH SALE CALCULATOR</span>
+          </div>
+
+          <!-- [MOCK ELEMENT]: OPTION C PILL IN HEADER -->
+          <div class="flex items-center gap-3">
+            <div class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-md bg-slate-100 hover:bg-slate-200 border border-slate-300 text-[10px] font-mono text-slate-600 cursor-help transition-colors" title="WashGuard is an educational scenario simulation tool and does not provide formal tax preparation, filing, or licensed CPA advisory services.">
+              <span class="w-1.5 h-1.5 rounded-full bg-slate-400"></span>
+              <span>EDUCATIONAL SIMULATION</span>
+              <span class="text-slate-400 text-[9px]">ℹ</span>
+            </div>
+            <div class="flex items-center gap-1.5 text-[11px] font-mono text-slate-400">
+              <span class="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse"></span>
+              <span>PRIME</span>
+            </div>
+          </div>
+        </header>
+
+        <!-- Body Content Sample -->
+        <div class="p-5 sm:p-6 space-y-5">
+          <!-- TradingView Banner sits right at top cleanly -->
+          <div class="ad-unit relative overflow-hidden rounded-xl bg-white border border-slate-200 p-4 shadow-xs">
+            <div class="flex flex-wrap items-center justify-between gap-4">
+              <div class="flex items-center gap-3">
+                <div class="w-10 h-10 rounded-lg bg-blue-50 border border-blue-200 flex items-center justify-center text-blue-600 font-bold text-sm font-mono tracking-tighter shrink-0">TV</div>
+                <div>
+                  <div class="flex items-center gap-2 font-mono">
+                    <span class="text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded bg-blue-100 text-blue-800">FINANCIAL PARTNER</span>
+                    <span class="text-xs text-slate-500">TradingView</span>
+                  </div>
+                  <h5 class="text-sm font-bold text-slate-900 mt-0.5">Next-Level Charting & Real-Time Market Screener</h5>
+                  <p class="text-xs text-slate-600">Get up to $30 off your trading subscription today.</p>
+                </div>
+              </div>
+              <a href="#" class="px-4 py-2 rounded-lg bg-blue-600 text-white text-xs font-bold font-mono shadow-xs">Explore Charts & Screener →</a>
+            </div>
+          </div>
+
+          <!-- 2-Column Grid -->
+          <div class="grid grid-cols-1 lg:grid-cols-12 gap-5">
+            <div class="lg:col-span-7 bg-white border border-slate-200 rounded-xl p-5 shadow-xs space-y-4">
+              <h2 class="text-xs font-mono font-bold uppercase tracking-wider text-slate-900 border-b border-slate-200 pb-2">Transaction Legs (Buys & Sells)</h2>
+              <div class="p-3 rounded-lg bg-slate-50 border border-slate-200 text-xs font-mono text-slate-600 space-y-2">
+                <div>Leg #1: BUY 100 sh @ $200.00 (2026-03-01)</div>
+                <div>Leg #2: SELL 100 sh @ $170.00 (2026-03-15) from Leg #1</div>
+                <div>Leg #3: BUY 100 sh @ $175.00 (2026-03-25)</div>
+              </div>
+              <div class="flex justify-end pt-1">
+                <button class="px-5 py-2.5 rounded-lg bg-blue-600 text-white font-mono font-bold text-xs shadow-xs">RECALCULATE WASH SALES</button>
+              </div>
+            </div>
+            <div class="lg:col-span-5 bg-white border border-slate-200 rounded-xl p-5 shadow-xs space-y-3 font-mono">
+              <h3 class="text-xs font-bold uppercase tracking-wider text-slate-900 border-b border-slate-200 pb-2">Calculation Summary</h3>
+              <div class="grid grid-cols-2 gap-3 text-xs">
+                <div class="p-2.5 bg-slate-50 rounded border border-slate-200">
+                  <span class="text-[10px] text-slate-500 font-bold block">Disallowed Loss</span>
+                  <span class="text-lg font-bold text-slate-900 font-mono-num">$0.00</span>
+                </div>
+                <div class="p-2.5 bg-slate-50 rounded border border-slate-200">
+                  <span class="text-[10px] text-slate-500 font-bold block">Realized Tax Gain/Loss</span>
+                  <span class="text-lg font-bold text-rose-700 font-mono-num">-$4,000.00</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- OPTION D: SUMMARY CARD NOTE (CONSOLIDATED FOOTER) -->
+    <div id="view-opt-d" class="option-view space-y-4 hidden">
+      <!-- Rationale Card -->
+      <div class="p-4 rounded-xl bg-amber-50/70 border border-amber-200 text-xs shadow-2xs flex flex-col md:flex-row md:items-center justify-between gap-3">
+        <div class="space-y-1">
+          <div class="flex items-center gap-2">
+            <span class="w-2.5 h-2.5 rounded-full bg-amber-600"></span>
+            <strong class="text-amber-950 font-mono text-[11px] uppercase tracking-wider">Option D: Calculation Summary Card Note + 3-Column Footer</strong>
+            <span class="px-2 py-0.5 rounded bg-slate-200 text-slate-800 text-[10px] font-mono font-bold">Brokerage Standard</span>
+          </div>
+          <p class="text-slate-700">
+            Standard brokerage approach (e.g. E*TRADE, Fidelity). Removes top banners completely, places a discrete 1-line note inside the Right-hand "Calculation Summary" card footer, and lets the comprehensive 3-column bottom guide house the detailed legal notice.
+          </p>
+        </div>
+        <div class="flex items-center gap-2 text-[11px] font-mono text-slate-600 shrink-0">
+          <span class="px-2.5 py-1 rounded bg-white border border-slate-200 shadow-2xs">Eye-Catchiness: <strong>Low (2/10)</strong></span>
+          <span class="px-2.5 py-1 rounded bg-white border border-slate-200 shadow-2xs">Redundancy: <strong>Zero</strong></span>
+        </div>
+      </div>
+
+      <!-- App Frame -->
+      <div class="bg-slate-50 border border-slate-200 rounded-2xl shadow-sm overflow-hidden">
+        <header class="bg-white border-b border-slate-200 px-5 sm:px-8 h-12 flex items-center justify-between">
+          <div class="flex items-center gap-2.5 font-mono text-xs font-bold tracking-wider">
+            <span class="w-5 h-5 bg-blue-600 text-white rounded flex items-center justify-center font-black text-xs">W</span>
+            <span class="tracking-widest text-slate-950">WASHGUARD</span>
+            <span class="text-slate-400 font-normal">| WASH SALE CALCULATOR</span>
+          </div>
+          <div class="flex items-center gap-3 font-mono text-[11px] text-slate-400">
+            <span class="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse"></span>
+            <span>PRIME DESK MODE</span>
+          </div>
+        </header>
+
+        <div class="p-5 sm:p-6 space-y-5">
+          <!-- TradingView Banner -->
+          <div class="ad-unit relative overflow-hidden rounded-xl bg-white border border-slate-200 p-4 shadow-xs">
+            <div class="flex flex-wrap items-center justify-between gap-4">
+              <div class="flex items-center gap-3">
+                <div class="w-10 h-10 rounded-lg bg-blue-50 border border-blue-200 flex items-center justify-center text-blue-600 font-bold text-sm font-mono tracking-tighter shrink-0">TV</div>
+                <div>
+                  <div class="flex items-center gap-2 font-mono">
+                    <span class="text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded bg-blue-100 text-blue-800">FINANCIAL PARTNER</span>
+                    <span class="text-xs text-slate-500">TradingView</span>
+                  </div>
+                  <h5 class="text-sm font-bold text-slate-900 mt-0.5">Next-Level Charting & Real-Time Market Screener</h5>
+                  <p class="text-xs text-slate-600">Get up to $30 off your trading subscription today.</p>
+                </div>
+              </div>
+              <a href="#" class="px-4 py-2 rounded-lg bg-blue-600 text-white text-xs font-bold font-mono shadow-xs">Explore Charts & Screener →</a>
+            </div>
+          </div>
+
+          <!-- 2-Column Grid -->
+          <div class="grid grid-cols-1 lg:grid-cols-12 gap-5">
+            <div class="lg:col-span-7 bg-white border border-slate-200 rounded-xl p-5 shadow-xs space-y-4">
+              <h2 class="text-xs font-mono font-bold uppercase tracking-wider text-slate-900 border-b border-slate-200 pb-2">Transaction Legs (Buys & Sells)</h2>
+              <div class="p-3 rounded-lg bg-slate-50 border border-slate-200 text-xs font-mono text-slate-600 space-y-2">
+                <div>Leg #1: BUY 100 sh @ $200.00 (2026-03-01)</div>
+                <div>Leg #2: SELL 100 sh @ $170.00 (2026-03-15) from Leg #1</div>
+                <div>Leg #3: BUY 100 sh @ $175.00 (2026-03-25)</div>
+              </div>
+              <div class="flex justify-end pt-1">
+                <button class="px-5 py-2.5 rounded-lg bg-blue-600 text-white font-mono font-bold text-xs shadow-xs">RECALCULATE WASH SALES</button>
+              </div>
+            </div>
+            
+            <!-- Right Column with Integrated Note -->
+            <div class="lg:col-span-5 bg-white border border-slate-200 rounded-xl p-5 shadow-xs space-y-3 font-mono">
+              <h3 class="text-xs font-bold uppercase tracking-wider text-slate-900 border-b border-slate-200 pb-2">Calculation Summary</h3>
+              <div class="grid grid-cols-2 gap-3 text-xs">
+                <div class="p-2.5 bg-slate-50 rounded border border-slate-200">
+                  <span class="text-[10px] text-slate-500 font-bold block">Disallowed Loss</span>
+                  <span class="text-lg font-bold text-slate-900 font-mono-num">$0.00</span>
+                </div>
+                <div class="p-2.5 bg-slate-50 rounded border border-slate-200">
+                  <span class="text-[10px] text-slate-500 font-bold block">Realized Tax Gain/Loss</span>
+                  <span class="text-lg font-bold text-rose-700 font-mono-num">-$4,000.00</span>
+                </div>
+              </div>
+
+              <!-- [MOCK ELEMENT]: OPTION D NOTE -->
+              <div class="pt-2 border-t border-slate-100 flex items-center gap-1.5 text-[10px] text-slate-400 font-normal">
+                <span>ℹ</span>
+                <span>For educational scenario simulation only. Not tax advice. See footer disclosures.</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- CURRENT BASELINE: YELLOW WARNING BANNER (FOR DIRECT CONTRAST) -->
+    <div id="view-current" class="option-view space-y-4 hidden">
+      <div class="p-4 rounded-xl bg-rose-50 border border-rose-200 text-xs shadow-2xs flex flex-col md:flex-row md:items-center justify-between gap-3">
+        <div class="space-y-1">
+          <div class="flex items-center gap-2">
+            <span class="w-2.5 h-2.5 rounded-full bg-rose-600"></span>
+            <strong class="text-rose-950 font-mono text-[11px] uppercase tracking-wider">Current Baseline: Yellow/Amber Warning Alert Banner</strong>
+            <span class="px-2 py-0.5 rounded bg-rose-100 text-rose-800 text-[10px] font-mono font-bold">Too Catchy / High Prominence</span>
+          </div>
+          <p class="text-slate-700">
+            This is the current presentation. Notice how the yellow background (<code class="text-rose-900 bg-white px-1 py-0.5 rounded">bg-amber-50</code>), amber border, and <code class="text-rose-900 bg-white px-1 py-0.5 rounded">⚠️</code> caution symbol dominate the top of the screen before the user sees the calculator.
+          </p>
+        </div>
+        <div class="flex items-center gap-2 text-[11px] font-mono text-slate-600 shrink-0">
+          <span class="px-2.5 py-1 rounded bg-white border border-slate-200 shadow-2xs">Eye-Catchiness: <strong>High (9/10)</strong></span>
+          <span class="px-2.5 py-1 rounded bg-white border border-slate-200 shadow-2xs">Alarm Feel: <strong>High</strong></span>
+        </div>
+      </div>
+
+      <!-- App Frame -->
+      <div class="bg-slate-50 border border-slate-200 rounded-2xl shadow-sm overflow-hidden">
+        <header class="bg-white border-b border-slate-200 px-5 sm:px-8 h-12 flex items-center justify-between">
+          <div class="flex items-center gap-2.5 font-mono text-xs font-bold tracking-wider">
+            <span class="w-5 h-5 bg-blue-600 text-white rounded flex items-center justify-center font-black text-xs">W</span>
+            <span class="tracking-widest text-slate-950">WASHGUARD</span>
+            <span class="text-slate-400 font-normal">| WASH SALE CALCULATOR</span>
+          </div>
+          <div class="flex items-center gap-3 font-mono text-[11px] text-slate-400">
+            <span class="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse"></span>
+            <span>PRIME DESK MODE</span>
+          </div>
+        </header>
+
+        <!-- Current Banner -->
+        <div class="bg-amber-50 border-b border-amber-200 px-4 py-2 text-xs text-amber-900">
+          <div class="max-w-7xl mx-auto flex items-center justify-between gap-3 font-mono">
+            <div class="flex items-center gap-2">
+              <span class="text-amber-600 text-sm">⚠️</span>
+              <p class="text-slate-700 font-sans text-xs">
+                <strong class="text-amber-900 font-bold font-mono">Educational Disclaimer:</strong> 
+                WashGuard is an analytical tool for scenario simulation and personal trading strategy. It is not tax advice, tax preparation, or a tax filing service. Always consult a licensed CPA or tax professional.
+              </p>
+            </div>
+            <button class="text-amber-700 hover:text-amber-950 font-bold text-xs px-2 py-0.5 rounded transition-colors" title="Dismiss">
+              ✕
+            </button>
+          </div>
+        </div>
+
+        <div class="p-5 sm:p-6 space-y-5">
+          <!-- TradingView Banner -->
+          <div class="ad-unit relative overflow-hidden rounded-xl bg-white border border-slate-200 p-4 shadow-xs">
+            <div class="flex flex-wrap items-center justify-between gap-4">
+              <div class="flex items-center gap-3">
+                <div class="w-10 h-10 rounded-lg bg-blue-50 border border-blue-200 flex items-center justify-center text-blue-600 font-bold text-sm font-mono tracking-tighter shrink-0">TV</div>
+                <div>
+                  <div class="flex items-center gap-2 font-mono">
+                    <span class="text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded bg-blue-100 text-blue-800">FINANCIAL PARTNER</span>
+                    <span class="text-xs text-slate-500">TradingView</span>
+                  </div>
+                  <h5 class="text-sm font-bold text-slate-900 mt-0.5">Next-Level Charting & Real-Time Market Screener</h5>
+                  <p class="text-xs text-slate-600">Get up to $30 off your trading subscription today.</p>
+                </div>
+              </div>
+              <a href="#" class="px-4 py-2 rounded-lg bg-blue-600 text-white text-xs font-bold font-mono shadow-xs">Explore Charts & Screener →</a>
+            </div>
+          </div>
+
+          <div class="grid grid-cols-1 lg:grid-cols-12 gap-5">
+            <div class="lg:col-span-7 bg-white border border-slate-200 rounded-xl p-5 shadow-xs space-y-4">
+              <h2 class="text-xs font-mono font-bold uppercase tracking-wider text-slate-900 border-b border-slate-200 pb-2">Transaction Legs (Buys & Sells)</h2>
+              <div class="p-3 rounded-lg bg-slate-50 border border-slate-200 text-xs font-mono text-slate-600 space-y-2">
+                <div>Leg #1: BUY 100 sh @ $200.00 (2026-03-01)</div>
+                <div>Leg #2: SELL 100 sh @ $170.00 (2026-03-15) from Leg #1</div>
+                <div>Leg #3: BUY 100 sh @ $175.00 (2026-03-25)</div>
+              </div>
+              <div class="flex justify-end pt-1">
+                <button class="px-5 py-2.5 rounded-lg bg-blue-600 text-white font-mono font-bold text-xs shadow-xs">RECALCULATE WASH SALES</button>
+              </div>
+            </div>
+            <div class="lg:col-span-5 bg-white border border-slate-200 rounded-xl p-5 shadow-xs space-y-3 font-mono">
+              <h3 class="text-xs font-bold uppercase tracking-wider text-slate-900 border-b border-slate-200 pb-2">Calculation Summary</h3>
+              <div class="grid grid-cols-2 gap-3 text-xs">
+                <div class="p-2.5 bg-slate-50 rounded border border-slate-200">
+                  <span class="text-[10px] text-slate-500 font-bold block">Disallowed Loss</span>
+                  <span class="text-lg font-bold text-slate-900 font-mono-num">$0.00</span>
+                </div>
+                <div class="p-2.5 bg-slate-50 rounded border border-slate-200">
+                  <span class="text-[10px] text-slate-500 font-bold block">Realized Tax Gain/Loss</span>
+                  <span class="text-lg font-bold text-rose-700 font-mono-num">-$4,000.00</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </main>
+
+  <script>
+    function showOption(optId) {
+      document.querySelectorAll('.option-view').forEach(el => el.classList.add('hidden'));
+      document.querySelectorAll('.opt-tab').forEach(btn => {
+        btn.classList.remove('bg-blue-600', 'text-white', 'shadow-xs');
+        btn.classList.add('text-slate-600');
+      });
+
+      const targetView = document.getElementById('view-' + optId);
+      const targetBtn = document.getElementById('tab-' + optId);
+
+      if (targetView) targetView.classList.remove('hidden');
+      if (targetBtn) {
+        targetBtn.classList.remove('text-slate-600');
+        targetBtn.classList.add('bg-blue-600', 'text-white', 'shadow-xs');
+      }
+    }
+  </script>
+
+</body>
+</html>

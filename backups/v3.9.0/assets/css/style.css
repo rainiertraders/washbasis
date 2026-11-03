@@ -1,0 +1,171 @@
+/* WashGuard Institutional Design System - Scheme 2 Grounded Contrast (MP138 Nordic / Verdant Abyss / Gatsby Palette) */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  /* MP138 Palette Constants */
+  --color-speed-of-light: #F6F4EF;
+  --color-blue-pearl: #C5D9E3;
+  --color-misty-blue: #B4C4C3;
+  --color-grape-gatsby: #A19ABD;
+  --color-nordic: #1D393C;
+  --color-verdant-abyss: #0C1B15;
+
+  /* Theme Mapping */
+  --bg-primary: #F6F4EF;
+  --bg-card: #FFFFFF;
+  --border-card: #C5D9E3;
+  --text-primary: #0C1B15;
+  --text-secondary: #1D393C;
+  --header-bg: #0C1B15;
+  --summary-card-bg: #0C1B15;
+  --summary-tile-bg: #1D393C;
+  --summary-border: #1D393C;
+}
+
+/* Global Font: Plus Jakarta Sans for all texts and numbers */
+* {
+  font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+}
+
+body {
+  background-color: #F6F4EF;
+  color: #0C1B15;
+  font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Ensure all monospace/number elements use Plus Jakarta Sans with tabular alignment */
+.font-mono, .font-mono-num, code, pre, button, input, select, textarea {
+  font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif !important;
+}
+
+.font-mono-num {
+  font-feature-settings: "tnum" 1, "zero" 1;
+  font-variant-numeric: tabular-nums;
+}
+
+/* Custom Scrollbar in MP138 Misty Blue / Nordic tint */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #F6F4EF;
+}
+::-webkit-scrollbar-thumb {
+  background: #B4C4C3;
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #1D393C;
+}
+
+/* Input Fields */
+.input-field {
+  background-color: #FFFFFF;
+  border: 1px solid #B4C4C3;
+  color: #0C1B15;
+  padding: 0.5rem 0.75rem;
+  border-radius: 0.5rem;
+  font-size: 0.8125rem;
+  transition: all 0.15s ease;
+  width: 100%;
+}
+.input-field:focus {
+  outline: none;
+  border-color: #1D393C;
+  box-shadow: 0 0 0 2px rgba(161, 154, 189, 0.4);
+}
+
+/* Primary Action Buttons */
+.calc-btn {
+  background-color: #1D393C;
+  color: #F6F4EF;
+  border: 1px solid #1D393C;
+  transition: background-color 0.15s ease, box-shadow 0.15s ease, transform 0.1s ease;
+}
+.calc-btn:hover {
+  background-color: #0C1B15;
+  box-shadow: 0 2px 6px rgba(12, 27, 21, 0.25);
+}
+
+.btn-add-buy {
+  background-color: #ecfdf5;
+  color: #065f46;
+  border-color: #a7f3d0;
+}
+.btn-add-buy:hover {
+  background-color: #d1fae5;
+}
+
+.btn-add-sell {
+  background-color: #fff1f2;
+  color: #9f1239;
+  border-color: #fecdd3;
+}
+.btn-add-sell:hover {
+  background-color: #ffe4e6;
+}
+
+/* Leg Row Borders */
+.repurchase-leg-row.leg-row-buy {
+  border-left: 4px solid #059669;
+  background-color: #FFFFFF;
+}
+.repurchase-leg-row.leg-row-sell {
+  border-left: 4px solid #dc2626;
+  background-color: #FFFFFF;
+}
+
+/* Header & Card Transitions */
+.theme-transition {
+  transition: background-color 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease, color 0.25s ease;
+}
+
+/* Google AdSense Desktop Side Rails */
+.ad-side-rail-container {
+  display: none;
+}
+@media (min-width: 1440px) {
+  .ad-side-rail-container {
+    display: block;
+  }
+}
+
+/* AdSense Anchor Bottom Edge Animation */
+@keyframes slideUpAnchor {
+  from {
+    transform: translateY(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+.ad-anchor-unit {
+  animation: slideUpAnchor 0.35s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+/* Print Styles */
+@media print {
+  body {
+    background-color: white !important;
+    color: black !important;
+  }
+  .no-print, nav, .ad-unit, button, .ad-side-rail-container, #adSlotAnchor {
+    display: none !important;
+  }
+  table {
+    width: 100% !important;
+    color: black !important;
+  }
+  th, td {
+    border: 1px solid #ddd !important;
+    color: black !important;
+    padding: 6px !important;
+  }
+}

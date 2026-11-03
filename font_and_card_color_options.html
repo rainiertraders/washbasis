@@ -1,0 +1,642 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>WashGuard - Institutional Font & Card Color Options Mockup</title>
+  
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Google Fonts for Top Brokerage Typography -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600;700&family=IBM+Plex+Sans:wght@400;500;600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&family=Libre+Franklin:wght@400;500;600;700;800&family=Newsreader:ital,opsz,wght@0,6..72,500;0,6..72,600;1,6..72,500&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <style>
+    /* Font System Classes */
+    .font-sys-jakarta { font-family: 'Plus Jakarta Sans', sans-serif; }
+    .font-sys-newsreader { font-family: 'Inter', sans-serif; }
+    .font-sys-newsreader h1, .font-sys-newsreader h2, .font-sys-newsreader h3, .font-sys-newsreader h4, .font-sys-newsreader .editorial-title { font-family: 'Newsreader', Georgia, serif; }
+    .font-sys-plex { font-family: 'IBM Plex Sans', sans-serif; }
+    .font-sys-plex .font-mono, .font-sys-plex .font-mono-num { font-family: 'IBM Plex Mono', monospace !important; }
+    .font-sys-franklin { font-family: 'Libre Franklin', sans-serif; }
+
+    .font-mono-num { font-family: 'JetBrains Mono', monospace; font-feature-settings: "tnum" 1, "zero" 1; }
+
+    /* Transitions */
+    .theme-transition { transition: background-color 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease, color 0.25s ease; }
+  </style>
+</head>
+<body class="bg-slate-200 text-slate-900 antialiased p-4 sm:p-6 lg:p-8 font-sys-jakarta" id="pageBody">
+
+  <!-- TOP SHOWCASE CONTROL PANEL -->
+  <div class="max-w-7xl mx-auto mb-8 bg-white border border-slate-300 rounded-2xl p-5 shadow-sm">
+    <div class="flex flex-col lg:flex-row lg:items-center justify-between gap-5 pb-5 border-b border-slate-200">
+      <div>
+        <div class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-blue-50 border border-blue-200 text-blue-700 text-[11px] font-mono font-semibold tracking-wide mb-1 uppercase">
+          Institutional Design System Exploration
+        </div>
+        <h1 class="text-xl sm:text-2xl font-bold text-slate-950 tracking-tight">
+          Trust & Reliability: Font Systems & Card Color Schemes
+        </h1>
+        <p class="text-xs sm:text-sm text-slate-600 mt-1 max-w-2xl leading-relaxed">
+          Top broker firms avoid uniform "all-white" screens by creating <strong>tonal separation</strong> between the background canvas, input cards, and summary output panels. Test the font and color options below:
+        </p>
+      </div>
+
+      <!-- Quick 1-Click Broker Presets -->
+      <div class="space-y-1.5">
+        <label class="text-[10px] font-mono uppercase tracking-wider font-bold text-slate-500 block">1-Click Institutional Presets:</label>
+        <div class="flex flex-wrap items-center gap-1.5 font-mono text-xs">
+          <button onclick="applyPreset('preset-gs')" id="btn-p-gs" class="preset-btn px-2.5 py-1.5 rounded-lg border border-blue-600 bg-blue-600 text-white font-bold shadow-2xs">
+            GS Marquee / Morgan Stanley
+          </button>
+          <button onclick="applyPreset('preset-jpm')" id="btn-p-jpm" class="preset-btn px-2.5 py-1.5 rounded-lg border border-slate-300 bg-slate-50 hover:bg-slate-100 text-slate-700 font-medium">
+            JPMorgan Private Bank
+          </button>
+          <button onclick="applyPreset('preset-ibkr')" id="btn-p-ibkr" class="preset-btn px-2.5 py-1.5 rounded-lg border border-slate-300 bg-slate-50 hover:bg-slate-100 text-slate-700 font-medium">
+            IBKR Pro Terminal
+          </button>
+          <button onclick="applyPreset('preset-schwab')" id="btn-p-schwab" class="preset-btn px-2.5 py-1.5 rounded-lg border border-slate-300 bg-slate-50 hover:bg-slate-100 text-slate-700 font-medium">
+            Charles Schwab Advisory
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Dual Independent Selectors: Font + Color Scheme -->
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-5 pt-4">
+      
+      <!-- 1. Font System Selector -->
+      <div class="space-y-2">
+        <div class="flex items-center justify-between">
+          <label class="text-xs font-mono font-bold uppercase tracking-wider text-slate-800 flex items-center gap-1.5">
+            <span class="w-2 h-2 rounded-full bg-blue-600"></span> 1. Typography System (Trust & Reliability)
+          </label>
+          <span id="fontBadge" class="text-[10px] font-mono text-blue-700 bg-blue-50 px-2 py-0.5 rounded border border-blue-200">Plus Jakarta Sans</span>
+        </div>
+        <div class="grid grid-cols-2 gap-2 text-xs font-mono">
+          <button onclick="setFont('jakarta')" id="btn-f-jakarta" class="font-btn p-2 rounded-lg border border-blue-600 bg-blue-50/50 text-blue-900 font-bold text-left flex flex-col shadow-2xs">
+            <span class="text-[11px] font-bold">Plus Jakarta Sans</span>
+            <span class="text-[9px] text-slate-500 font-sans mt-0.5 font-normal">Modern Goldman Marquee / FinTech</span>
+          </button>
+          <button onclick="setFont('newsreader')" id="btn-f-newsreader" class="font-btn p-2 rounded-lg border border-slate-200 bg-white hover:bg-slate-50 text-slate-700 font-medium text-left flex flex-col">
+            <span class="text-[11px] font-serif font-bold">Newsreader + Inter</span>
+            <span class="text-[9px] text-slate-500 font-sans mt-0.5 font-normal">Heritage Wall St. / Wealth Fiduciary</span>
+          </button>
+          <button onclick="setFont('plex')" id="btn-f-plex" class="font-btn p-2 rounded-lg border border-slate-200 bg-white hover:bg-slate-50 text-slate-700 font-medium text-left flex flex-col">
+            <span class="text-[11px] font-bold">IBM Plex Sans & Mono</span>
+            <span class="text-[9px] text-slate-500 font-sans mt-0.5 font-normal">IBKR / Bloomberg Terminal Precision</span>
+          </button>
+          <button onclick="setFont('franklin')" id="btn-f-franklin" class="font-btn p-2 rounded-lg border border-slate-200 bg-white hover:bg-slate-50 text-slate-700 font-medium text-left flex flex-col">
+            <span class="text-[11px] font-bold">Libre Franklin</span>
+            <span class="text-[9px] text-slate-500 font-sans mt-0.5 font-normal">Schwab / Fidelity Classic Stability</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- 2. Card Color Arrangement Selector -->
+      <div class="space-y-2">
+        <div class="flex items-center justify-between">
+          <label class="text-xs font-mono font-bold uppercase tracking-wider text-slate-800 flex items-center gap-1.5">
+            <span class="w-2 h-2 rounded-full bg-emerald-600"></span> 2. Card Color Arrangement (Fixing "All-White")
+          </label>
+          <span id="schemeBadge" class="text-[10px] font-mono text-emerald-800 bg-emerald-50 px-2 py-0.5 rounded border border-emerald-200">Layered Cool Slate</span>
+        </div>
+        <div class="grid grid-cols-2 gap-2 text-xs font-mono">
+          <button onclick="setColorScheme('layered-slate')" id="btn-c-layered" class="color-btn p-2 rounded-lg border border-emerald-600 bg-emerald-50/50 text-emerald-950 font-bold text-left flex flex-col shadow-2xs">
+            <span class="text-[11px]">Scheme 1: Layered Cool Slate</span>
+            <span class="text-[9px] text-slate-500 font-sans mt-0.5 font-normal">Slate-100 canvas + Ice-blue Summary</span>
+          </button>
+          <button onclick="setColorScheme('dual-tone')" id="btn-c-dual" class="color-btn p-2 rounded-lg border border-slate-200 bg-white hover:bg-slate-50 text-slate-700 font-medium text-left flex flex-col">
+            <span class="text-[11px]">Scheme 2: Dual-Tone Grounded</span>
+            <span class="text-[9px] text-slate-500 font-sans mt-0.5 font-normal">Slate-200 canvas + Cool Zinc Summary</span>
+          </button>
+          <button onclick="setColorScheme('top-accents')" id="btn-c-accents" class="color-btn p-2 rounded-lg border border-slate-200 bg-white hover:bg-slate-50 text-slate-700 font-medium text-left flex flex-col">
+            <span class="text-[11px]">Scheme 3: Architectural Accents</span>
+            <span class="text-[9px] text-slate-500 font-sans mt-0.5 font-normal">3px top indicator bars + Tinted tiles</span>
+          </button>
+          <button onclick="setColorScheme('swiss-cashmere')" id="btn-c-cashmere" class="color-btn p-2 rounded-lg border border-slate-200 bg-white hover:bg-slate-50 text-slate-700 font-medium text-left flex flex-col">
+            <span class="text-[11px]">Scheme 4: Swiss Cashmere Ivory</span>
+            <span class="text-[9px] text-slate-500 font-sans mt-0.5 font-normal">Soft linen canvas + Porcelain cards</span>
+          </button>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ========================================================================= -->
+  <!-- LIVE APPLICATION FRAME MOCKUP (Updates dynamically)                       -->
+  <!-- ========================================================================= -->
+  <div class="max-w-7xl mx-auto rounded-2xl shadow-lg border border-slate-300 overflow-hidden theme-transition" id="appCanvas">
+    
+    <!-- TOP APP BAR -->
+    <header id="mockHeader" class="bg-white border-b border-slate-200 px-5 sm:px-8 h-12 flex items-center justify-between theme-transition">
+      <div class="flex items-center gap-2.5 font-mono text-xs font-bold tracking-wider">
+        <span id="mockLogoBadge" class="w-5 h-5 bg-blue-600 text-white rounded flex items-center justify-center font-black text-xs">W</span>
+        <span class="tracking-widest text-slate-950 font-bold" id="mockBrandName">WASHGUARD</span>
+        <span class="text-slate-400 font-normal hidden sm:inline" id="mockSubtitle">| WASH SALE CALCULATOR</span>
+      </div>
+      <div class="flex items-center gap-3 font-mono text-[11px] text-slate-500">
+        <span class="flex items-center gap-1.5 px-2 py-0.5 rounded bg-slate-100 border border-slate-200 text-slate-700 font-semibold" id="mockDeskTag">
+          <span class="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse"></span>
+          PRIME BROKERAGE
+        </span>
+      </div>
+    </header>
+
+    <!-- MAIN BODY WORKSPACE -->
+    <main class="p-5 sm:p-6 lg:p-7 space-y-6">
+
+      <!-- TRADINGVIEW AFFILIATE BANNER -->
+      <section id="mockBannerCard" class="ad-unit relative overflow-hidden rounded-xl bg-white border border-slate-200 p-4 shadow-2xs theme-transition">
+        <div class="flex flex-wrap items-center justify-between gap-4">
+          <div class="flex items-center gap-3">
+            <div class="w-10 h-10 rounded-lg bg-blue-50 border border-blue-200 flex items-center justify-center text-blue-600 font-bold text-sm font-mono tracking-tighter shrink-0">
+              TV
+            </div>
+            <div>
+              <div class="flex items-center gap-2 font-mono">
+                <span class="text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded bg-blue-100 text-blue-800">
+                  FINANCIAL PARTNER
+                </span>
+                <span class="text-xs text-slate-500">TradingView</span>
+              </div>
+              <h5 class="text-sm font-bold text-slate-900 mt-0.5" id="bannerHeadline">Next-Level Charting & Real-Time Market Screener</h5>
+              <p class="text-xs text-slate-600" id="bannerSub">Get up to $30 off your trading subscription today.</p>
+            </div>
+          </div>
+          <div class="flex items-center gap-3">
+            <button class="px-4 py-2 rounded-lg bg-blue-600 hover:bg-blue-700 text-white text-xs font-bold font-mono shadow-xs transition-all whitespace-nowrap" id="bannerCta">
+              Explore Charts & Screener →
+            </button>
+          </div>
+        </div>
+      </section>
+
+      <!-- 2-COLUMN GRID: INPUTS (7) + SUMMARY (5) -->
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-5">
+        
+        <!-- LEFT COLUMN: TRADE INPUTS CARD -->
+        <div id="cardInputs" class="lg:col-span-7 bg-white border border-slate-200 rounded-xl p-5 shadow-xs space-y-4 theme-transition">
+          
+          <div class="border-b border-slate-200 pb-3 flex items-center justify-between" id="inputCardHeader">
+            <h2 class="text-xs font-mono font-bold uppercase tracking-wider text-slate-900">
+              Transaction Legs (Buys & Sells)
+            </h2>
+            <div class="flex items-center gap-2">
+              <span class="px-2 py-0.5 rounded bg-slate-100 text-[10px] font-mono text-emerald-800 border border-slate-200 font-semibold">+ BUY LOT</span>
+              <span class="px-2 py-0.5 rounded bg-slate-100 text-[10px] font-mono text-rose-800 border border-slate-200 font-semibold">+ SELL LOT</span>
+            </div>
+          </div>
+
+          <!-- Symbol Row -->
+          <div class="flex items-center gap-3 text-xs font-mono">
+            <label class="font-semibold uppercase text-slate-600">Security Symbol:</label>
+            <div class="px-3 py-1 rounded border border-slate-300 bg-white font-bold text-slate-900 shadow-2xs font-mono-num">
+              DEF
+            </div>
+          </div>
+
+          <!-- Trade Rows (Left Colored Accents) -->
+          <div class="space-y-2 font-mono text-xs" id="legsContainer">
+            <!-- Leg 1 BUY -->
+            <div class="p-3 rounded-lg border border-slate-200 bg-slate-50/80 border-l-4 border-l-emerald-600 flex items-center justify-between">
+              <div class="flex items-center gap-2.5">
+                <span class="px-1.5 py-0.5 rounded bg-emerald-100 text-emerald-800 font-bold text-[10px]">BUY</span>
+                <span class="font-semibold text-slate-900">Leg #1</span>
+                <span class="text-slate-500">2026-03-01</span>
+              </div>
+              <div class="font-mono-num text-slate-800">
+                100 sh @ <strong>$200.00</strong>
+              </div>
+            </div>
+
+            <!-- Leg 2 SELL -->
+            <div class="p-3 rounded-lg border border-slate-200 bg-slate-50/80 border-l-4 border-l-rose-600 flex items-center justify-between">
+              <div class="flex items-center gap-2.5">
+                <span class="px-1.5 py-0.5 rounded bg-rose-100 text-rose-800 font-bold text-[10px]">SELL</span>
+                <span class="font-semibold text-slate-900">Leg #2</span>
+                <span class="text-slate-500">2026-03-15</span>
+                <span class="text-[10px] text-slate-500 bg-white px-1.5 py-0.5 rounded border border-slate-200">from Leg #1</span>
+              </div>
+              <div class="font-mono-num text-slate-800">
+                100 sh @ <strong>$170.00</strong>
+              </div>
+            </div>
+
+            <!-- Leg 3 BUY -->
+            <div class="p-3 rounded-lg border border-slate-200 bg-slate-50/80 border-l-4 border-l-emerald-600 flex items-center justify-between">
+              <div class="flex items-center gap-2.5">
+                <span class="px-1.5 py-0.5 rounded bg-emerald-100 text-emerald-800 font-bold text-[10px]">BUY</span>
+                <span class="font-semibold text-slate-900">Leg #3</span>
+                <span class="text-slate-500">2026-03-25</span>
+              </div>
+              <div class="font-mono-num text-slate-800">
+                100 sh @ <strong>$175.00</strong>
+              </div>
+            </div>
+          </div>
+
+          <div class="flex justify-end pt-1">
+            <button id="mockCalcBtn" class="px-5 py-2.5 rounded-lg bg-blue-600 hover:bg-blue-700 text-white font-mono font-bold text-xs shadow-sm transition-all">
+              RECALCULATE WASH SALES
+            </button>
+          </div>
+        </div>
+
+        <!-- RIGHT COLUMN: CALCULATION SUMMARY CARD -->
+        <div id="cardSummary" class="lg:col-span-5 bg-white border border-slate-200 rounded-xl p-5 shadow-xs space-y-4 theme-transition">
+          
+          <div class="flex items-center justify-between border-b border-slate-200 pb-3" id="summaryCardHeader">
+            <h3 class="text-xs font-mono font-bold uppercase tracking-wider text-slate-900">
+              Calculation Summary
+            </h3>
+            <span class="px-2.5 py-0.5 rounded text-[10px] font-mono font-bold uppercase tracking-wider bg-rose-50 text-rose-800 border border-rose-200">
+              LOSS DISALLOWED
+            </span>
+          </div>
+
+          <!-- Key Metrics Grid -->
+          <div class="grid grid-cols-2 gap-3 font-mono">
+            
+            <div id="metricBox1" class="p-3 rounded-lg bg-slate-50 border border-slate-200 theme-transition">
+              <span class="text-[10px] uppercase tracking-wider text-slate-500 font-bold block">Disallowed Loss</span>
+              <span class="text-xl font-bold font-mono-num text-slate-900 mt-0.5 block">$3,000.00</span>
+              <span class="text-[10px] text-slate-500">Deferred to replacement basis</span>
+            </div>
+
+            <div id="metricBox2" class="p-3 rounded-lg bg-slate-50 border border-slate-200 theme-transition">
+              <span class="text-[10px] uppercase tracking-wider text-slate-500 font-bold block">Recognized Tax Gain/Loss</span>
+              <span class="text-xl font-bold font-mono-num text-slate-900 mt-0.5 block">$0.00</span>
+              <span class="text-[10px] text-slate-500">Reportable net P/L</span>
+            </div>
+
+            <div id="metricBox3" class="p-3 rounded-lg bg-slate-50 border border-slate-200 theme-transition">
+              <span class="text-[10px] uppercase tracking-wider text-slate-500 font-bold block">Adjusted Basis / Share</span>
+              <span class="text-xl font-bold font-mono-num text-amber-800 mt-0.5 block">$205.00</span>
+              <span class="text-[10px] text-slate-500">Includes tacked loss</span>
+            </div>
+
+            <div id="metricBox4" class="p-3 rounded-lg bg-slate-50 border border-slate-200 theme-transition">
+              <span class="text-[10px] uppercase tracking-wider text-slate-500 font-bold block">Clearance Horizon (Day +31)</span>
+              <span class="text-lg font-bold font-mono-num text-emerald-800 mt-0.5 block">2026-04-15</span>
+              <span class="text-[10px] text-emerald-700">Safe repurchase date</span>
+            </div>
+
+          </div>
+
+          <!-- Explanation Narrative Box -->
+          <div id="mockNarrative" class="p-3.5 rounded-lg bg-slate-50 border border-slate-200 text-xs font-mono text-slate-700 leading-relaxed space-y-1.5 theme-transition">
+            <p><strong>Wash Sale Disallowance Triggered:</strong> Leg #3 (100 shares @ $175) was acquired within +10 days of loss sale Leg #2.</p>
+            <ul class="list-disc list-inside text-slate-600 text-[11px] space-y-0.5">
+              <li>Disallowed Loss: <strong class="text-slate-900">$3,000.00</strong> added to Leg #3 cost basis.</li>
+              <li>Leg #3 Basis adjusted from $175.00/sh to <strong class="text-amber-800">$205.00/sh</strong>.</li>
+            </ul>
+          </div>
+
+          <!-- Discrete Compliance Note (Option D) -->
+          <div class="pt-2 border-t border-slate-100 flex items-center gap-1.5 text-[10px] font-mono text-slate-400 font-normal">
+            <span>ℹ</span>
+            <span>For educational scenario simulation only. Not tax advice. See footer disclosures below.</span>
+          </div>
+
+        </div>
+
+      </div>
+
+      <!-- TIMELINE HORIZON CARD -->
+      <div id="cardTimeline" class="bg-white border border-slate-200 rounded-xl p-5 shadow-xs space-y-4 theme-transition">
+        <div class="flex flex-wrap items-center justify-between gap-3 border-b border-slate-200 pb-3 font-mono">
+          <div>
+            <h4 class="text-xs uppercase tracking-wider font-bold text-slate-900">
+              61-Day Statutory Timeline Horizon (Window: T-30 to T+30)
+            </h4>
+            <p class="text-xs text-slate-600 mt-0.5">
+              Reference Loss Date: <strong class="text-rose-700">2026-03-15</strong> • Window: 2026-02-13 to 2026-04-14
+            </p>
+          </div>
+          <div class="flex items-center gap-2 text-[11px]">
+            <span class="px-2.5 py-0.5 rounded bg-amber-50 text-amber-800 border border-amber-300">Pre-Sale Window (-30d)</span>
+            <span class="px-2.5 py-0.5 rounded bg-rose-50 text-rose-800 border border-rose-300">Disallowance Zone (+30d)</span>
+            <span class="px-2.5 py-0.5 rounded bg-emerald-50 text-emerald-800 border border-emerald-300 font-bold">+31d Safe Buy Horizon</span>
+          </div>
+        </div>
+
+        <!-- Timeline Scale -->
+        <div class="relative pt-12 pb-10 px-6">
+          <div class="h-4 w-full bg-slate-100 rounded-full relative border border-slate-300 shadow-inner flex overflow-hidden text-[9px] font-mono select-none">
+            <div style="width: 15%" class="h-full bg-slate-100 shrink-0"></div>
+            <div style="width: 35%" class="h-full bg-amber-200/80 border-r border-rose-400 shrink-0 flex items-center justify-center text-amber-900 font-semibold truncate px-1">
+              <span>Pre-Sale (-30d)</span>
+            </div>
+            <div style="width: 35%" class="h-full bg-rose-200/80 border-r border-emerald-500 shrink-0 flex items-center justify-center text-rose-900 font-semibold truncate px-1">
+              <span>Disallowance Zone (+30d)</span>
+            </div>
+            <div style="width: 15%" class="h-full bg-emerald-200/80 shrink-0 flex items-center justify-center text-emerald-900 font-semibold truncate px-1">
+              <span>Safe Zone (+31d →)</span>
+            </div>
+          </div>
+
+          <!-- Milestones Below -->
+          <div class="absolute top-16 left-0 right-0 px-6 flex justify-between font-mono text-[10px]">
+            <div style="margin-left: 15%; transform: translateX(-50%);" class="text-center">
+              <div class="h-2 w-0.5 bg-amber-600 mx-auto"></div>
+              <div class="font-bold text-amber-900 mt-0.5">-30d</div>
+            </div>
+            <div style="margin-left: -5%;" class="text-center">
+              <div class="h-2 w-0.5 bg-rose-600 mx-auto"></div>
+              <div class="font-bold text-rose-900 mt-0.5">Day 0 Sale</div>
+            </div>
+            <div style="margin-right: 15%; transform: translateX(50%);" class="text-center">
+              <div class="h-2 w-0.5 bg-emerald-600 mx-auto"></div>
+              <div class="inline-flex items-center gap-1 px-1.5 py-0.5 rounded bg-emerald-50 border border-emerald-300 text-emerald-800 font-bold text-[9px]">
+                <span>+30d End</span> → <span class="font-extrabold">+31d SAFE</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </main>
+
+    <!-- 3-COLUMN BOTTOM GUIDE -->
+    <footer id="mockFooter" class="border-t border-slate-200 bg-white p-6 sm:p-8 text-xs text-slate-600 space-y-6 theme-transition">
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div>
+          <h4 class="font-mono text-xs uppercase tracking-wider font-bold text-slate-900 mb-2 flex items-center gap-1.5">
+            <span>🛡️</span> About WashGuard
+          </h4>
+          <p class="text-slate-600 leading-relaxed text-xs">
+            WashGuard is a privacy-first web & mobile application for simulating wash sale mechanics. All calculations run strictly client-side on your device—no accounts, no servers, no trade logging.
+          </p>
+        </div>
+        <div>
+          <h4 class="font-mono text-xs uppercase tracking-wider font-bold text-slate-900 mb-2">The 61-Day Window Rule</h4>
+          <p class="text-slate-600 leading-relaxed text-xs">
+            The wash sale window spans 30 days prior to the sale date, the sale date itself, and 30 days after (61 total calendar days). Buying substantially identical shares during this window disallows the loss for current tax deductions.
+          </p>
+        </div>
+        <div>
+          <h4 class="font-mono text-xs uppercase tracking-wider font-bold text-slate-900 mb-2">Legal Disclaimer</h4>
+          <p class="text-slate-500 leading-relaxed text-[11px]">
+            WashGuard is an educational simulation and calculation tool for personal trading strategy. It does NOT provide tax advisory, legal, or tax filing services. Consult a certified public accountant (CPA) regarding your tax liabilities.
+          </p>
+        </div>
+      </div>
+
+      <div class="pt-6 border-t border-slate-200 flex flex-wrap items-center justify-between gap-3 text-[11px] font-mono text-slate-500">
+        <span>© 2026 WashGuard. All rights reserved.</span>
+        <div class="flex items-center gap-4">
+          <span class="hover:text-slate-900 cursor-pointer">Privacy Policy</span>
+          <span class="hover:text-slate-900 cursor-pointer">Terms of Use</span>
+          <span class="text-slate-300">•</span>
+          <span>Wash Sale Calculation Model • Client-Side Computation Only</span>
+        </div>
+      </div>
+    </footer>
+
+  </div>
+
+  <!-- JAVASCRIPT STATE CONTROLLER -->
+  <script>
+    let currentFont = 'jakarta';
+    let currentScheme = 'layered-slate';
+
+    const fontConfigs = {
+      'jakarta': {
+        class: 'font-sys-jakarta',
+        badge: 'Plus Jakarta Sans',
+        desc: 'Engineered geometric sans used by modern institutional platforms. Clean high-contrast typography.'
+      },
+      'newsreader': {
+        class: 'font-sys-newsreader',
+        badge: 'Newsreader Serif + Inter',
+        desc: 'Classic Wall Street & Private Wealth pedigree. Editorial serif titles with neutral high-legibility body.'
+      },
+      'plex': {
+        class: 'font-sys-plex',
+        badge: 'IBM Plex Sans & Mono',
+        desc: 'Built specifically for corporate finance & data terminals. High-density quantitative precision.'
+      },
+      'franklin': {
+        class: 'font-sys-franklin',
+        badge: 'Libre Franklin',
+        desc: 'Historical American financial typeface. Conveys FDIC/SIPC bedrock stability (Schwab & Fidelity).'
+      }
+    };
+
+    const schemeConfigs = {
+      'layered-slate': {
+        name: 'Scheme 1: Layered Cool Slate',
+        badge: 'Layered Cool Slate',
+        canvasBg: 'bg-[#edf1f7]', // Cool Slate Canvas
+        inputCardBg: 'bg-white',
+        inputBorder: 'border-slate-300',
+        summaryCardBg: 'bg-[#f4f7fc]', // Ice-Slate contrast output panel
+        summaryBorder: 'border-blue-300/80',
+        timelineBg: 'bg-white',
+        timelineBorder: 'border-slate-300',
+        metricTileBg: 'bg-white',
+        metricTileBorder: 'border-slate-200',
+        narrativeBg: 'bg-blue-50/50',
+        narrativeBorder: 'border-blue-200/80',
+        footerBg: 'bg-white',
+        btnBg: 'bg-blue-600',
+        bannerBorder: 'border-slate-300',
+        topAccentInputs: false,
+        topAccentSummary: false
+      },
+      'dual-tone': {
+        name: 'Scheme 2: Dual-Tone Grounded',
+        badge: 'Dual-Tone Grounded',
+        canvasBg: 'bg-[#e2e8f0]', // Concrete Slate-200
+        inputCardBg: 'bg-white',
+        inputBorder: 'border-slate-300 shadow-sm',
+        summaryCardBg: 'bg-[#1e293b]', // Executive Deep Slate Contrast Card
+        summaryBorder: 'border-slate-700',
+        summaryTextColor: 'text-white',
+        timelineBg: 'bg-white',
+        timelineBorder: 'border-slate-300 shadow-sm',
+        metricTileBg: 'bg-slate-800/90',
+        metricTileBorder: 'border-slate-700',
+        narrativeBg: 'bg-slate-800/80',
+        narrativeBorder: 'border-slate-700',
+        footerBg: 'bg-slate-100',
+        btnBg: 'bg-slate-900',
+        bannerBorder: 'border-slate-300',
+        topAccentInputs: false,
+        topAccentSummary: false
+      },
+      'top-accents': {
+        name: 'Scheme 3: Architectural Top Accents',
+        badge: 'Architectural Accents',
+        canvasBg: 'bg-[#eaeff5]', // Crisp technical overcast
+        inputCardBg: 'bg-white',
+        inputBorder: 'border-slate-300 border-t-4 border-t-blue-600 shadow-xs',
+        summaryCardBg: 'bg-white',
+        summaryBorder: 'border-slate-300 border-t-4 border-t-emerald-600 shadow-xs',
+        timelineBg: 'bg-white',
+        timelineBorder: 'border-slate-300 border-t-4 border-t-slate-800 shadow-xs',
+        metricTileBg: 'bg-slate-100/70',
+        metricTileBorder: 'border-slate-200',
+        narrativeBg: 'bg-slate-50',
+        narrativeBorder: 'border-slate-200',
+        footerBg: 'bg-white',
+        btnBg: 'bg-blue-600',
+        bannerBorder: 'border-slate-300',
+        topAccentInputs: true,
+        topAccentSummary: true
+      },
+      'swiss-cashmere': {
+        name: 'Scheme 4: Swiss Cashmere Ivory',
+        badge: 'Swiss Cashmere Ivory',
+        canvasBg: 'bg-[#f4f2ec]', // Warm Cashmere Linen
+        inputCardBg: 'bg-[#ffffff]',
+        inputBorder: 'border-stone-300 shadow-xs',
+        summaryCardBg: 'bg-[#fbfaf8]', // Warm Cream Tinted Summary
+        summaryBorder: 'border-stone-300 shadow-xs',
+        timelineBg: 'bg-[#ffffff]',
+        timelineBorder: 'border-stone-300 shadow-xs',
+        metricTileBg: 'bg-[#f5f3ee]',
+        metricTileBorder: 'border-stone-200',
+        narrativeBg: 'bg-[#f5f3ee]',
+        narrativeBorder: 'border-stone-200',
+        footerBg: 'bg-[#faf9f6]',
+        btnBg: 'bg-stone-900',
+        bannerBorder: 'border-stone-300',
+        topAccentInputs: false,
+        topAccentSummary: false
+      }
+    };
+
+    function setFont(fontKey) {
+      currentFont = fontKey;
+      const body = document.getElementById('pageBody');
+      body.className = body.className.replace(/font-sys-[a-z]+/g, '') + ' ' + fontConfigs[fontKey].class;
+      document.getElementById('fontBadge').textContent = fontConfigs[fontKey].badge;
+
+      // Update button styles
+      document.querySelectorAll('.font-btn').forEach(btn => {
+        btn.classList.remove('border-blue-600', 'bg-blue-50/50', 'text-blue-900', 'font-bold');
+        btn.classList.add('border-slate-200', 'bg-white', 'text-slate-700', 'font-medium');
+      });
+      const activeBtn = document.getElementById('btn-f-' + fontKey);
+      if (activeBtn) {
+        activeBtn.classList.remove('border-slate-200', 'bg-white', 'text-slate-700', 'font-medium');
+        activeBtn.classList.add('border-blue-600', 'bg-blue-50/50', 'text-blue-900', 'font-bold');
+      }
+    }
+
+    function setColorScheme(schemeKey) {
+      currentScheme = schemeKey;
+      const cfg = schemeConfigs[schemeKey];
+      document.getElementById('schemeBadge').textContent = cfg.badge;
+
+      // Canvas background
+      const appCanvas = document.getElementById('appCanvas');
+      appCanvas.className = `max-w-7xl mx-auto rounded-2xl shadow-lg border border-slate-300 overflow-hidden theme-transition ${cfg.canvasBg}`;
+
+      // Left Input Card
+      const cardInputs = document.getElementById('cardInputs');
+      cardInputs.className = `lg:col-span-7 rounded-xl p-5 theme-transition ${cfg.inputCardBg} ${cfg.inputBorder}`;
+
+      // Right Summary Card
+      const cardSummary = document.getElementById('cardSummary');
+      cardSummary.className = `lg:col-span-5 rounded-xl p-5 space-y-4 theme-transition ${cfg.summaryCardBg} ${cfg.summaryBorder}`;
+
+      // Timeline Card
+      const cardTimeline = document.getElementById('cardTimeline');
+      cardTimeline.className = `rounded-xl p-5 space-y-4 theme-transition ${cfg.timelineBg} ${cfg.timelineBorder}`;
+
+      // Footer
+      const mockFooter = document.getElementById('mockFooter');
+      mockFooter.className = `border-t border-slate-200 p-6 sm:p-8 text-xs text-slate-600 space-y-6 theme-transition ${cfg.footerBg}`;
+
+      // Metric Boxes
+      const isDualTone = schemeKey === 'dual-tone';
+      for (let i = 1; i <= 4; i++) {
+        const box = document.getElementById('metricBox' + i);
+        if (box) {
+          box.className = `p-3 rounded-lg theme-transition ${cfg.metricTileBg} ${cfg.metricTileBorder}`;
+          // Adjust labels for dark summary card in dual-tone
+          const spans = box.querySelectorAll('span');
+          if (isDualTone) {
+            if (spans[0]) spans[0].className = 'text-[10px] uppercase tracking-wider text-slate-400 font-bold block';
+            if (spans[1] && i !== 3 && i !== 4) spans[1].className = 'text-xl font-bold font-mono-num text-white mt-0.5 block';
+            if (spans[2] && i !== 4) spans[2].className = 'text-[10px] text-slate-400';
+          } else {
+            if (spans[0]) spans[0].className = 'text-[10px] uppercase tracking-wider text-slate-500 font-bold block';
+            if (spans[1] && i !== 3 && i !== 4) spans[1].className = 'text-xl font-bold font-mono-num text-slate-900 mt-0.5 block';
+            if (spans[2] && i !== 4) spans[2].className = 'text-[10px] text-slate-500';
+          }
+        }
+      }
+
+      // Narrative Box
+      const mockNarrative = document.getElementById('mockNarrative');
+      if (mockNarrative) {
+        if (isDualTone) {
+          mockNarrative.className = `p-3.5 rounded-lg text-xs font-mono text-slate-200 leading-relaxed space-y-1.5 theme-transition ${cfg.narrativeBg} ${cfg.narrativeBorder}`;
+        } else {
+          mockNarrative.className = `p-3.5 rounded-lg text-xs font-mono text-slate-700 leading-relaxed space-y-1.5 theme-transition ${cfg.narrativeBg} ${cfg.narrativeBorder}`;
+        }
+      }
+
+      // Calculate Button
+      const mockCalcBtn = document.getElementById('mockCalcBtn');
+      if (mockCalcBtn) {
+        mockCalcBtn.className = `px-5 py-2.5 rounded-lg text-white font-mono font-bold text-xs shadow-sm transition-all ${cfg.btnBg}`;
+      }
+
+      // Banner Card
+      const mockBannerCard = document.getElementById('mockBannerCard');
+      if (mockBannerCard) {
+        mockBannerCard.className = `ad-unit relative overflow-hidden rounded-xl bg-white p-4 shadow-2xs theme-transition border ${cfg.bannerBorder}`;
+      }
+
+      // Update button styles
+      document.querySelectorAll('.color-btn').forEach(btn => {
+        btn.classList.remove('border-emerald-600', 'bg-emerald-50/50', 'text-emerald-950', 'font-bold');
+        btn.classList.add('border-slate-200', 'bg-white', 'text-slate-700', 'font-medium');
+      });
+      const activeBtn = document.getElementById('btn-c-' + (schemeKey === 'layered-slate' ? 'layered' : schemeKey === 'dual-tone' ? 'dual' : schemeKey === 'top-accents' ? 'accents' : 'cashmere'));
+      if (activeBtn) {
+        activeBtn.classList.remove('border-slate-200', 'bg-white', 'text-slate-700', 'font-medium');
+        activeBtn.classList.add('border-emerald-600', 'bg-emerald-50/50', 'text-emerald-950', 'font-bold');
+      }
+    }
+
+    function applyPreset(presetKey) {
+      document.querySelectorAll('.preset-btn').forEach(btn => {
+        btn.classList.remove('border-blue-600', 'bg-blue-600', 'text-white', 'font-bold');
+        btn.classList.add('border-slate-300', 'bg-slate-50', 'text-slate-700', 'font-medium');
+      });
+
+      if (presetKey === 'preset-gs') {
+        setFont('jakarta');
+        setColorScheme('layered-slate');
+        document.getElementById('btn-p-gs').className = 'preset-btn px-2.5 py-1.5 rounded-lg border border-blue-600 bg-blue-600 text-white font-bold shadow-2xs';
+      } else if (presetKey === 'preset-jpm') {
+        setFont('newsreader');
+        setColorScheme('swiss-cashmere');
+        document.getElementById('btn-p-jpm').className = 'preset-btn px-2.5 py-1.5 rounded-lg border border-blue-600 bg-blue-600 text-white font-bold shadow-2xs';
+      } else if (presetKey === 'preset-ibkr') {
+        setFont('plex');
+        setColorScheme('dual-tone');
+        document.getElementById('btn-p-ibkr').className = 'preset-btn px-2.5 py-1.5 rounded-lg border border-blue-600 bg-blue-600 text-white font-bold shadow-2xs';
+      } else if (presetKey === 'preset-schwab') {
+        setFont('franklin');
+        setColorScheme('top-accents');
+        document.getElementById('btn-p-schwab').className = 'preset-btn px-2.5 py-1.5 rounded-lg border border-blue-600 bg-blue-600 text-white font-bold shadow-2xs';
+      }
+    }
+
+    // Initialize with GS Marquee / Layered Cool Slate
+    applyPreset('preset-gs');
+  </script>
+
+</body>
+</html>

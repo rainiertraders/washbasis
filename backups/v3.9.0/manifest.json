@@ -1,0 +1,18 @@
+{
+  "name": "WashGuard - Wash Sale Calculator",
+  "short_name": "WashGuard",
+  "start_url": "./index.html",
+  "display": "standalone",
+  "background_color": "#0C1B15",
+  "theme_color": "#0C1B15",
+  "description": "Calculate wash sales, visualize the 61-day window, and track basis adjustments with 100% client-side privacy.",
+  "icons": [
+    {
+      "src": "./assets/icons/icon.svg",
+      "sizes": "192x192 512x512",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ],
+  "categories": ["finance", "utilities", "productivity"]
+}

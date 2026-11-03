@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://washbasis.com/sitemap.xml

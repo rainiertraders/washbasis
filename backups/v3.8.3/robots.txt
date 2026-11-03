@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://washguard.app/sitemap.xml

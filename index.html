@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>WashBasis | Wash Sale Calculator</title>
+  <meta name="description" content="Institutional wash sale calculator, 61-day statutory timeline visualizer, and basis adjustment engine.">
+  <link rel="canonical" href="https://washbasis.com/">
+  <link rel="manifest" href="./manifest.json">
+  <link rel="icon" type="image/svg+xml" href="./assets/icons/icon.svg">
+  <meta name="theme-color" content="#0C1B15">
+
+  <!-- OpenGraph & Social Cards -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="WashBasis | Wash Sale Calculator">
+  <meta property="og:description" content="Calculate wash sale loss disallowances, 61-day statutory replacement windows, and adjusted cost basis. 100% private, client-side computation.">
+  <meta property="og:url" content="https://washbasis.com/">
+  <meta property="og:image" content="https://washbasis.com/assets/icons/icon.svg">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="WashBasis | Wash Sale Calculator">
+  <meta name="twitter:description" content="Calculate wash sale loss disallowances, 61-day statutory replacement windows, and adjusted cost basis. 100% private, client-side computation.">
+
+  <!-- Schema.org WebApplication Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "WashBasis",
+    "url": "https://washbasis.com/",
+    "description": "Client-side wash sale calculator, 61-day statutory window timeline visualizer, and cost basis adjustment engine.",
+    "applicationCategory": "FinanceApplication",
+    "operatingSystem": "All",
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "USD"
+    }
+  }
+  </script>
+
+  <!-- Plus Jakarta Sans Font for all text and numbers -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Plus Jakarta Sans', 'sans-serif'],
+            mono: ['Plus Jakarta Sans', 'sans-serif'],
+          },
+          colors: {
+            mp138: {
+              speed: '#F6F4EF',
+              pearl: '#C5D9E3',
+              misty: '#B4C4C3',
+              gatsby: '#A19ABD',
+              nordic: '#1D393C',
+              abyss: '#0C1B15',
+            }
+          }
+        }
+      }
+    }
+  </script>
+  <link rel="stylesheet" href="./assets/css/style.css">
+</head>
+<body class="min-h-screen flex flex-col bg-[#F6F4EF] text-[#0C1B15] antialiased font-sans">
+
+  <!-- TOP APP BAR (Verdant Abyss #0C1B15) -->
+  <header id="topAppBar" class="header-bar bg-[#0C1B15] text-[#F6F4EF] border-b border-[#1D393C] transition-colors duration-200">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-12 flex items-center justify-between">
+      <div class="flex items-center gap-2.5 font-mono text-xs font-bold tracking-wider">
+        <span id="brandLogo" class="header-brand-badge w-5 h-5 bg-[#A19ABD] text-[#0C1B15] rounded flex items-center justify-center font-black text-xs transition-colors">W</span>
+        <span id="brandTitle" class="header-brand-text tracking-widest transition-colors font-bold text-[#F6F4EF]">WASHBASIS</span>
+        <span id="brandSubtitle" class="header-subtitle text-[#C5D9E3] font-normal transition-colors">| WASH SALE CALCULATOR</span>
+      </div>
+    </div>
+  </header>
+
+  <!-- MAIN CONTAINER -->
+  <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-5 flex-1 w-full space-y-5">
+
+    <!-- TRADINGVIEW AFFILIATE BANNER (Restored Gradient Banner from v3.3.0) -->
+    <section id="adSlotTop" class="w-full no-print">
+      <!-- Injected by monetization.js -->
+    </section>
+
+    <!-- SCENARIO CALCULATOR & TIMELINE -->
+    <div id="tabScenarioView" class="space-y-5">
+      
+      <!-- TOP CALCULATION SUMMARY CARD (Option 1: Institutional Terminal Layout) -->
+      <div id="scenarioResultCard" class="bg-[#0C1B15] border-2 border-[#1D393C] rounded-xl p-4 sm:p-5 shadow-md space-y-4 text-[#F6F4EF]">
+        <div class="flex items-center justify-between border-b border-[#1D393C] pb-3">
+          <div class="flex items-center gap-2.5">
+            <span class="w-2.5 h-2.5 rounded-full bg-[#A19ABD]"></span>
+            <h3 class="text-xs font-mono font-bold uppercase tracking-wider text-[#F6F4EF]">
+              Calculation Summary
+            </h3>
+          </div>
+          <div class="flex items-center gap-3">
+            <span id="scenStatusBadge" class="px-2.5 py-0.5 rounded text-[10px] font-mono font-bold uppercase tracking-wider bg-[#1D393C] text-[#C5D9E3] border border-[#284f53]">
+              AWAITING TRADES
+            </span>
+          </div>
+        </div>
+
+        <!-- Metric Ribbon (Option 1: 4-Column Horizontal Layout) -->
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-3 font-mono">
+          <!-- 1: Disallowed Loss -->
+          <div class="p-3.5 rounded-lg bg-[#1D393C] border border-[#284f53]">
+            <div class="text-[10px] uppercase text-[#C5D9E3] font-bold tracking-wider">Disallowed Loss</div>
+            <div id="resDisallowedLoss" class="text-xl font-bold font-mono-num text-amber-400 mt-0.5 block">$0.00</div>
+            <div id="resDisallowedLossSub" class="text-[10px] text-[#B4C4C3]/80 mt-0.5">Deferred to basis</div>
+          </div>
+
+          <!-- 2: Realized P/L -->
+          <div class="p-3.5 rounded-lg bg-[#1D393C] border border-[#284f53]">
+            <div class="text-[10px] uppercase text-[#C5D9E3] font-bold tracking-wider">Realized P/L</div>
+            <div id="resAllowedLoss" class="text-xl font-bold font-mono-num text-white mt-0.5 block">$0.00</div>
+            <div id="resAllowedLossSub" class="text-[10px] text-[#B4C4C3]/80 mt-0.5">Reportable Loss</div>
+          </div>
+
+          <!-- 3: Adjusted Cost Basis -->
+          <div class="p-3.5 rounded-lg bg-[#1D393C] border border-[#284f53]">
+            <div class="text-[10px] uppercase text-[#C5D9E3] font-bold tracking-wider">Adjusted Cost Basis</div>
+            <div id="resAdjustedBasis" class="text-xl font-bold font-mono-num text-[#C5D9E3] mt-0.5 block">$0.00<span class="text-xs text-[#B4C4C3] font-normal">/sh</span></div>
+            <div id="resAdjustedBasisSub" class="text-[10px] text-[#B4C4C3]/80 mt-0.5">+$0.00/sh tacked wash</div>
+          </div>
+
+          <!-- 4: Window Clearance (Day +31) -->
+          <div class="p-3.5 rounded-lg bg-[#1D393C] border border-[#284f53]">
+            <div class="text-[10px] uppercase text-[#C5D9E3] font-bold tracking-wider">Window Clearance (Day +31)</div>
+            <div id="resSafeDate" class="text-xl font-bold font-mono-num text-[#B4C4C3] mt-0.5 block">---</div>
+            <div id="resSafeDateSub" class="text-[10px] text-[#B4C4C3]/80 mt-0.5">Awaiting Trade Data</div>
+          </div>
+        </div>
+
+        <!-- Hidden narrative box preserving DOM element reference for app.js -->
+        <div id="scenNarrativeBox" class="hidden"></div>
+
+        <!-- Discreet Compliance Note (Option D) -->
+        <div class="pt-2 border-t border-[#1D393C] flex flex-wrap items-center justify-between gap-2 text-[10px] font-mono text-[#B4C4C3]/80 font-normal">
+          <div class="flex items-center gap-1.5">
+            <span>ℹ</span>
+            <span>For educational scenario simulation only. Not tax advice. See footer disclosures below.</span>
+          </div>
+          <div class="text-[10px] text-[#C5D9E3]/70 font-mono">
+            Zero Server Retention • Client-Side Computation
+          </div>
+        </div>
+      </div>
+
+      <!-- TRANSACTION LEGS FORM (Full-Width Execution Blotter) -->
+      <div class="bg-white border border-[#C5D9E3] rounded-xl p-5 shadow-xs space-y-4">
+        <div class="border-b border-[#C5D9E3] pb-3 flex flex-wrap items-center justify-between gap-3">
+          <div class="flex flex-wrap items-center gap-3 sm:gap-4">
+            <h2 class="text-xs font-mono font-bold uppercase tracking-wider text-[#0C1B15]">
+              Transaction Legs (Buys & Sells)
+            </h2>
+            <div class="h-4 w-px bg-[#C5D9E3] hidden sm:block"></div>
+            <!-- Security Identifier Row (Moved up to same row) -->
+            <div class="flex items-center gap-2 font-mono">
+              <label for="scenSymbol" class="text-xs font-semibold uppercase text-slate-700">Security Symbol:</label>
+              <input type="text" id="scenSymbol" form="scenarioForm" class="input-field uppercase font-mono-num font-bold w-24 text-center px-2 py-1 text-xs border border-[#C5D9E3] rounded bg-[#F6F4EF] shadow-2xs focus:border-[#1D393C]" value="DEF" required>
+            </div>
+          </div>
+          <div class="flex items-center gap-2">
+            <button type="button" id="addBuyLegBtn" class="btn-add-buy px-2.5 py-1 rounded bg-emerald-50 hover:bg-emerald-100 text-emerald-800 text-xs font-mono font-semibold border border-emerald-300 transition-all flex items-center gap-1 shadow-2xs">
+              <span>+</span> ADD BUY LOT
+            </button>
+            <button type="button" id="addSellLegBtn" class="btn-add-sell px-2.5 py-1 rounded bg-rose-50 hover:bg-rose-100 text-rose-800 text-xs font-mono font-semibold border border-rose-300 transition-all flex items-center gap-1 shadow-2xs">
+              <span>+</span> ADD SELL LOT
+            </button>
+          </div>
+        </div>
+
+        <form id="scenarioForm" class="space-y-4" onsubmit="event.preventDefault();">
+
+          <!-- Dynamic Multi-Leg Details Block -->
+          <div class="border border-[#C5D9E3] rounded-lg p-3 bg-[#F6F4EF] space-y-2.5">
+            <div id="repurchaseLegsList" class="space-y-2">
+              <!-- Dynamically populated rows -->
+            </div>
+          </div>
+
+          <div class="flex justify-end pt-1">
+            <button type="button" id="calcScenarioBtn" class="calc-btn px-5 py-2.5 rounded-lg bg-[#1D393C] hover:bg-[#0C1B15] text-[#F6F4EF] font-mono font-bold text-xs shadow-sm transition-all flex items-center gap-2 border border-[#1D393C]">
+              RECALCULATE WASH SALES
+            </button>
+          </div>
+        </form>
+      </div>
+
+      <!-- TIMELINE VISUALIZER SECTION -->
+      <div id="timelineContainer" class="w-full">
+        <!-- Injected by timeline.js -->
+      </div>
+    </div>
+
+  </main>
+
+  <!-- FOOTER & EDUCATIONAL GUIDE -->
+  <footer class="mt-auto border-t border-[#C5D9E3] bg-[#F6F4EF] py-8 text-xs text-slate-700">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-6">
+      
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div>
+          <h4 class="font-mono text-xs uppercase tracking-wider font-bold text-[#0C1B15] mb-2 flex items-center gap-1.5">
+            <span>🛡️</span> About WashBasis
+          </h4>
+          <p class="text-slate-700 leading-relaxed text-xs">
+            WashBasis is a privacy-first web & mobile application for simulating wash sale mechanics. All calculations run strictly client-side on your device—no accounts, no servers, no trade logging.
+          </p>
+        </div>
+        <div>
+          <h4 class="font-mono text-xs uppercase tracking-wider font-bold text-[#0C1B15] mb-2">The 61-Day Window Rule</h4>
+          <p class="text-slate-700 leading-relaxed text-xs">
+            The wash sale window spans 30 days prior to the sale date, the sale date itself, and 30 days after (61 total calendar days). Buying substantially identical shares during this window disallows the loss for current tax deductions.
+          </p>
+        </div>
+        <div>
+          <h4 class="font-mono text-xs uppercase tracking-wider font-bold text-[#0C1B15] mb-2">Legal Disclaimer</h4>
+          <p class="text-slate-500 leading-relaxed text-[11px]">
+            WashBasis is an educational simulation and calculation tool for personal trading strategy. It does NOT provide tax advisory, legal, or tax filing services. Consult a certified public accountant (CPA) regarding your tax liabilities.
+          </p>
+        </div>
+      </div>
+
+      <div class="pt-6 border-t border-[#C5D9E3] flex flex-wrap items-center justify-between gap-3 text-[11px] font-mono text-slate-600">
+        <span>© 2026 WashBasis. All rights reserved.</span>
+        <div class="flex items-center gap-4">
+          <a href="./privacy.html" class="hover:text-[#0C1B15] transition-colors underline decoration-slate-400">Privacy Policy</a>
+          <a href="./terms.html" class="hover:text-[#0C1B15] transition-colors underline decoration-slate-400">Terms of Use</a>
+          <span class="text-[#B4C4C3]">•</span>
+          <span>Wash Sale Calculation Model • Client-Side Computation Only</span>
+        </div>
+      </div>
+
+    </div>
+  </footer>
+
+  <!-- Application Bootstrap -->
+  <script type="module" src="./assets/js/app.js?v=3.8.4"></script>
+</body>
+</html>
